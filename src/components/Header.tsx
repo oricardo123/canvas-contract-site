@@ -6,7 +6,7 @@ import { BrandLogo } from "./BrandLogo";
 const navigation = [
   { label: "Collection", to: "/collection" },
   { label: "About", to: "/studio" },
-  { label: "Projects", to: "/projects" },
+  { label: "Work", to: "/projects" },
   { label: "Contact", to: "/contact" },
 ];
 

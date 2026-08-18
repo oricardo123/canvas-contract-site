@@ -2,8 +2,9 @@ import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ContactBanner } from "../components/ContactBanner";
 import { ProductCard } from "../components/ProductCard";
-import { ProjectPlaceholderCard } from "../components/ProjectPlaceholderCard";
+import { ProjectCard } from "../components/ProjectCard";
 import { catalog } from "../data/catalog";
+import { featuredProjects } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const process = [
@@ -23,11 +24,15 @@ const featuredProducts = [
   catalog[4].products[3],
 ];
 
+const selectedWork = featuredProjects.slice(0, 3);
+const heroProject = selectedWork[0];
+const heroImage = heroProject.images[0];
+
 export function HomePage() {
   usePageMeta(
     "Canvas Contract Furniture",
     "Canvas supplies made-to-order furniture for hotels, restaurants and private interiors in Portugal and international markets.",
-    { path: "/", image: "/assets/editorial/home-05.jpg" },
+    { path: "/", image: heroImage.src },
   );
 
   return (
@@ -44,7 +49,7 @@ export function HomePage() {
           </p>
           <div className="hero__actions">
             <Link className="button button--dark" to="/projects">
-              View projects
+              View work
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
             <Link className="text-link" to="/collection">
@@ -55,14 +60,15 @@ export function HomePage() {
         </div>
         <figure className="hero__media">
           <img
-            src="/assets/editorial/home-05.jpg"
-            alt="A row of timber dining chairs"
-            width="980"
-            height="400"
+            src={heroImage.src}
+            alt={heroImage.alt}
+            width={heroImage.width}
+            height={heroImage.height}
+            decoding="async"
           />
           <figcaption>
-            <span>Contract furniture</span>
-            <span>Portugal</span>
+            <span>{heroProject.name}</span>
+            <span>{heroProject.location}</span>
           </figcaption>
         </figure>
         <a className="hero__scroll" href="#selected-projects">
@@ -74,23 +80,20 @@ export function HomePage() {
       <section className="portfolio-section shell" id="selected-projects">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Projects</p>
+            <p className="eyebrow">Work</p>
             <h2>Selected work.</h2>
           </div>
           <div className="section-heading__aside">
-            <p className="section-heading__copy">
-              Project photography and details will be added here.
-            </p>
             <Link className="text-link" to="/projects">
-              View all projects
+              View all work
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
           </div>
         </div>
         <div className="portfolio-grid portfolio-grid--preview">
-          <ProjectPlaceholderCard index={1} variant="wide" />
-          <ProjectPlaceholderCard index={2} />
-          <ProjectPlaceholderCard index={3} />
+          {selectedWork.map((project, index) => (
+            <ProjectCard project={project} index={index} key={project.slug} />
+          ))}
         </div>
       </section>
 

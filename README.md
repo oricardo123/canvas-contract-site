@@ -4,7 +4,7 @@ A responsive React rebuild of the Canvas Contract Furniture website. The design 
 
 ## Included
 
-- Home, Collection, Studio, Projects and Contact pages
+- Home, Collection, Studio, Work and Contact pages
 - Eight furniture categories
 - 984 searchable product records and dynamic product-detail pages
 - Redirects for the current `.html` routes and product URLs

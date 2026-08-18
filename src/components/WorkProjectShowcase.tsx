@@ -1,0 +1,51 @@
+import type { WorkProject } from "../data/site";
+
+interface WorkProjectShowcaseProps {
+  project: WorkProject;
+  index: number;
+  priority?: boolean;
+}
+
+export function WorkProjectShowcase({ project, index, priority = false }: WorkProjectShowcaseProps) {
+  const titleId = `${project.slug}-title`;
+
+  return (
+    <article className="work-project shell" id={project.slug} aria-labelledby={titleId}>
+      <header className="work-project__header">
+        <span className="work-project__number" aria-hidden="true">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h2 id={titleId}>{project.name}</h2>
+        <dl>
+          <div>
+            <dt>Location</dt>
+            <dd>{project.location}</dd>
+          </div>
+          <div>
+            <dt>Work</dt>
+            <dd>{project.scope}</dd>
+          </div>
+        </dl>
+      </header>
+
+      <div className={`work-project__gallery work-project__gallery--${project.images.length}`}>
+        {project.images.map((image, imageIndex) => {
+          const loadImmediately = priority && imageIndex === 0;
+
+          return (
+            <figure key={image.src}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                loading={loadImmediately ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </figure>
+          );
+        })}
+      </div>
+    </article>
+  );
+}

@@ -15,7 +15,7 @@ export function Footer() {
           <p className="footer-label">Navigate</p>
           <Link to="/collection">Collection</Link>
           <Link to="/studio">About</Link>
-          <Link to="/projects">Projects</Link>
+          <Link to="/projects">Work</Link>
           <Link to="/contact">Contact</Link>
         </div>
         <div className="site-footer__column">

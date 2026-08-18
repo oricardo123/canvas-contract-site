@@ -99,7 +99,7 @@ export function StudioPage() {
 
       <section className="studio-focus shell">
         <div>
-          <p className="eyebrow">Projects</p>
+          <p className="eyebrow">Work</p>
           <h2>Portugal and international work.</h2>
         </div>
         <div>
@@ -107,7 +107,7 @@ export function StudioPage() {
             Canvas works with interior designers, architects, operators and private clients on projects in Portugal and abroad.
           </p>
           <Link className="text-link" to="/projects">
-            View projects
+            View work
             <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
           </Link>
         </div>
