@@ -230,27 +230,22 @@
     position: relative;
     display: block;
     width: 100%;
-    aspect-ratio: 2.34;
+    aspect-ratio: 2.325;
     overflow: hidden;
-    background: var(--white);
+    background: transparent;
   }
 
   .brand-logo__crop img {
     position: absolute;
-    top: -13.3%;
-    left: -4.3%;
-    width: 110.3%;
+    top: -18%;
+    left: -3.75%;
+    width: 107.7%;
     max-width: none;
     height: auto;
   }
 
-  .brand-logo--light .brand-logo__crop {
-    background: transparent;
-  }
-
   .brand-logo--light .brand-logo__crop img {
     filter: invert(1);
-    mix-blend-mode: screen;
   }
 
   .desktop-nav {
