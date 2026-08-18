@@ -9,7 +9,7 @@ export function ContactPage() {
   const [formNote, setFormNote] = useState("");
   usePageMeta(
     "Contact",
-    "Contact Canvas Contract Furniture about a product specification, bespoke commission or contract furniture project.",
+    "Begin a direct conversation with Canvas about an international project, product specification or bespoke furniture commission.",
     { path: "/contact", image: "/assets/editorial/contact-phone.jpg" },
   );
 
@@ -29,11 +29,11 @@ export function ContactPage() {
   return (
     <div className="contact-page page-enter">
       <PageIntro
-        eyebrow="Contact"
-        title="Every project starts with a conversation."
+        eyebrow="The project desk"
+        title="A direct conversation, from first thought to final placement."
         copy={
           <p>
-            Share the space, quantity, timeline and ambition. A drawing is useful, but a simple description is enough to begin.
+            Share the location, programme, quantity and ambition. A drawing is useful, but a simple description is enough to begin a personal conversation.
           </p>
         }
         side={<span className="page-count">UK · Portugal · International</span>}
@@ -81,8 +81,8 @@ export function ContactPage() {
 
         <form className="enquiry-form" onSubmit={handleSubmit}>
           <div className="enquiry-form__heading">
-            <p className="eyebrow">Project enquiry</p>
-            <h2>Tell us what you are making.</h2>
+            <p className="eyebrow">Begin a conversation</p>
+            <h2>Tell us about the place.</h2>
           </div>
           <label>
             <span>Your name</span>
@@ -96,9 +96,9 @@ export function ContactPage() {
             <span>What can we help with?</span>
             <select name="projectType" defaultValue="Contract project">
               <option>Contract project</option>
+              <option>International project</option>
               <option>Product specification</option>
               <option>Bespoke piece</option>
-              <option>Canvas Editions</option>
               <option>General enquiry</option>
             </select>
           </label>

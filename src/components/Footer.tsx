@@ -9,7 +9,7 @@ export function Footer() {
       <div className="shell site-footer__top">
         <div className="site-footer__intro">
           <BrandLogo light />
-          <p>Custom furniture for hospitality, contract and singular interiors.</p>
+          <p>A Portugal-based atelier for hospitality, contract and distinctive interiors worldwide.</p>
         </div>
         <div className="site-footer__column">
           <p className="footer-label">Navigate</p>
@@ -25,10 +25,10 @@ export function Footer() {
           <a href={`tel:${contact.ptPhoneHref}`}>{contact.ptPhone}</a>
         </div>
         <div className="site-footer__column site-footer__edition">
-          <p className="footer-label">On the horizon</p>
-          <p>One-of-one furniture, available directly from Canvas.</p>
+          <p className="footer-label">Project desk</p>
+          <p>Every commission begins with a direct conversation about place, programme and possibility.</p>
           <Link to="/contact">
-            Register your interest
+            Begin a conversation
             <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />
           </Link>
         </div>

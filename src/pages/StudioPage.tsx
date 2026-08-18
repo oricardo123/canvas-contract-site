@@ -5,26 +5,26 @@ import { PageIntro } from "../components/PageIntro";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const values = [
-  ["01", "Understanding", "We begin with the room: how it should feel, how it will be used and what the furniture must do."],
-  ["02", "Flexibility", "An existing form can change in proportion, material and detail, or become the basis for something entirely new."],
-  ["03", "Integrity", "Clear communication, sound construction and an exacting finish underpin every commission."],
+  ["01", "Judgement", "We begin with the room: its atmosphere, its use and the role each piece should play."],
+  ["02", "Adaptability", "An existing form can be refined in proportion and material, or become the beginning of something entirely new."],
+  ["03", "Integrity", "Direct communication, sound construction and an exacting finish underpin every international commission."],
 ];
 
 export function StudioPage() {
   usePageMeta(
     "Studio",
-    "Discover the experience, materials and made-to-order approach behind Canvas Contract Furniture.",
+    "Discover the Portugal-based expertise, international experience and made-to-order approach behind Canvas Contract Furniture.",
     { path: "/studio", image: "/assets/editorial/home-07.jpg" },
   );
 
   return (
     <div className="studio-page">
       <PageIntro
-        eyebrow="The studio"
-        title="A practical understanding of furniture. A lasting belief in design."
+        eyebrow="The atelier · Portugal"
+        title="Production knowledge, guided by a designer’s eye."
         copy={
           <p>
-            Canvas brings together design sensitivity, manufacturing knowledge and commercial experience to help clients realise both standard schemes and singular, ambitious pieces.
+            Canvas is a Portugal-based furniture atelier serving ambitious hospitality, contract and private projects internationally.
           </p>
         }
         side={<span className="page-count">Est. 2012</span>}
@@ -40,13 +40,13 @@ export function StudioPage() {
           />
         </figure>
         <div className="studio-lead__copy">
-          <p className="eyebrow">Canvas: design inspiring</p>
-          <h2>Expertise from the workshop to the finished interior.</h2>
+          <p className="eyebrow">From concept to placement</p>
+          <h2>Expertise that follows the piece all the way into the room.</h2>
           <p>
-            Canvas supplies furniture from experienced European makers and develops original pieces with its manufacturing team for bespoke projects.
+            Canvas combines trusted relationships with specialist European makers and an experienced manufacturing team to develop original furniture for complex briefs.
           </p>
           <p>
-            This breadth makes it possible to work at different scales — from one carefully resolved object to a complete contract programme.
+            This breadth makes it possible to work at different scales — from one carefully resolved object to a complete international furniture programme — without losing personal oversight.
           </p>
         </div>
       </section>
@@ -64,7 +64,7 @@ export function StudioPage() {
             Work with designers and architects — including Gal Tevet, Jorge Gonçalves and Siza Vieira — broadened that experience into furniture collections and hospitality projects for international markets.
           </p>
           <p>
-            Canvas was a natural evolution: a studio focused on customised furniture for hotels, restaurants, bars and high-end interiors, grounded equally in creative possibility and production reality.
+            Canvas was a natural evolution: a studio based in Portugal and focused on customised furniture for hotels, restaurants, private spaces and high-end interiors worldwide, grounded equally in creative possibility and production reality.
           </p>
         </div>
         <div className="craft-strip" aria-label="Furniture making details">
@@ -85,7 +85,7 @@ export function StudioPage() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">What guides us</p>
-              <h2>Design is only complete when it works.</h2>
+              <h2>Beauty, performance and longevity — resolved together.</h2>
             </div>
           </div>
           <ol className="values-grid">
@@ -102,12 +102,12 @@ export function StudioPage() {
 
       <section className="studio-focus shell">
         <div>
-          <p className="eyebrow">Our focus today</p>
-          <h2>Hospitality, contract and high-end interiors.</h2>
+          <p className="eyebrow">Portugal at the centre</p>
+          <h2>An international studio with a personal working rhythm.</h2>
         </div>
         <div>
           <p>
-            We work with interior designers, architects, operators and private clients who want furniture to belong to a space rather than simply occupy it.
+            Each year, we work across multiple international projects with interior designers, architects, operators and private clients. Wherever the destination, the relationship remains direct and the furniture is developed to belong to its place.
           </p>
           <Link className="text-link" to="/projects">
             View selected project experience

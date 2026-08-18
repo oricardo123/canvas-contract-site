@@ -5,35 +5,42 @@ import { PageIntro } from "../components/PageIntro";
 import { clients, projectGroups } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
+const projectMarkets = [
+  ["01", "Portugal", "Our home base and the centre of our furniture practice."],
+  ["02", "United Kingdom", "Longstanding experience across hospitality, private clubs and distinctive interiors."],
+  ["03", "Tel Aviv", "Part of Canvas's international project experience, delivered around a specific interior brief."],
+  ["04", "International", "Multiple cross-border projects each year, managed with close and consistent oversight."],
+];
+
 export function ProjectsPage() {
   usePageMeta(
     "Projects",
-    "Canvas furniture has been produced for hospitality and contract projects in the UK, Portugal and internationally.",
+    "A Portugal-based atelier developing made-to-order furniture for hospitality, contract and private projects internationally.",
     { path: "/projects", image: "/assets/editorial/portfolio.jpg" },
   );
 
   return (
     <div className="projects-page">
       <PageIntro
-        eyebrow="Selected experience"
-        title="Furniture made to become part of the place."
+        eyebrow="Selected international experience"
+        title="From Portugal to remarkable interiors worldwide."
         copy={
           <p>
-            Our production team has supplied established hotels, restaurants, private clubs and distinctive interiors — from regular collection pieces to elaborate custom commissions.
+            From Portugal, Canvas develops furniture for multiple international projects each year — from established hotels and restaurants to private clubs and singular interiors.
           </p>
         }
-        side={<span className="page-count">Hospitality · Contract · Bespoke</span>}
+        side={<span className="page-count">Portugal · International</span>}
       />
 
       <section className="project-gallery shell">
         <figure className="project-gallery__large">
           <img
             src="/assets/editorial/portfolio.jpg"
-            alt="Canvas contract seating installed around tables in a hospitality interior"
+            alt="A grid of selected names from Canvas's project history"
             width="420"
             height="600"
           />
-          <figcaption><span>Hospitality interiors</span><span>Furniture production</span></figcaption>
+          <figcaption><span>Selected names</span><span>Project history</span></figcaption>
         </figure>
         <figure className="project-gallery__wide">
           <img
@@ -45,8 +52,29 @@ export function ProjectsPage() {
           <figcaption><span>Contract seating</span><span>Made to order</span></figcaption>
         </figure>
         <blockquote>
-          <p>“From a single customised piece to a complete production run, the ideal solution begins with understanding the project.”</p>
+          <p>“The destination may change. The standard of attention does not.”</p>
         </blockquote>
+      </section>
+
+      <section className="project-reach">
+        <div className="shell project-reach__inner">
+          <div className="project-reach__heading">
+            <p className="eyebrow eyebrow--light">Across borders</p>
+            <h2>Based in Portugal.<br />Working internationally.</h2>
+            <p>
+              Our experience includes project work in Tel Aviv, alongside commissions in Portugal, the United Kingdom and other international markets. The list is deliberately indicative rather than exhaustive.
+            </p>
+          </div>
+          <ol>
+            {projectMarkets.map(([number, place, copy]) => (
+              <li key={place}>
+                <span>{number}</span>
+                <h3>{place}</h3>
+                <p>{copy}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
 
       <section className="project-types shell">
@@ -64,10 +92,10 @@ export function ProjectsPage() {
 
       <section className="client-list shell">
         <div className="client-list__intro">
-          <p className="eyebrow">Selected names</p>
-          <h2>A history of trusted production.</h2>
+          <p className="eyebrow">Selected project history</p>
+          <h2>Relationships built through delivery.</h2>
           <p>
-            A selection of venues and groups supplied by the Canvas furniture production team.
+            A selection of venues and groups supplied by the Canvas furniture production team over its project history.
           </p>
         </div>
         <ul>
@@ -89,10 +117,10 @@ export function ProjectsPage() {
           loading="lazy"
         />
         <div>
-          <p className="eyebrow">Your project</p>
-          <h2>Different scale. Same attention.</h2>
+          <p className="eyebrow">Your project, wherever it is</p>
+          <h2>Different destination. The same attention.</h2>
           <p>
-            Tell us the quantities, target date, location and level of customisation. We will help identify the most appropriate path through the collection or into bespoke development.
+            Tell us the quantities, programme, destination and level of customisation. You will have a direct conversation about the right path through the collection or into bespoke development.
           </p>
           <Link className="text-link" to="/contact">
             Share your brief

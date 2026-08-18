@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const SITE_ORIGIN = "https://www.canvascontract.com";
 const SITE_NAME = "Canvas Contract Furniture";
 const DEFAULT_DESCRIPTION =
-  "Canvas designs and supplies made-to-order furniture for hotels, restaurants, bars and distinctive interiors.";
+  "A Portugal-based atelier developing made-to-order furniture for hospitality, private and distinctive interiors worldwide.";
 const DEFAULT_IMAGE = "/assets/editorial/home-05.jpg";
 
 interface PageMetaOptions {

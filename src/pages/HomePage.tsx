@@ -6,11 +6,15 @@ import { catalog } from "../data/catalog";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const process = [
-  ["01", "Listen", "The room, the service and the people who will use it come first."],
-  ["02", "Develop", "Proportion, finish and construction are resolved around your brief."],
-  ["03", "Make", "Every piece is produced to order with contract-grade attention to detail."],
-  ["04", "Deliver", "From a singular piece to a complete scheme, we see the project through."],
+  ["01", "Understand", "We begin with the interior, its character and the people it must serve."],
+  ["02", "Resolve", "Proportion, material, finish and construction are developed around the brief."],
+  ["03", "Produce", "Specialist making and exacting quality control bring every detail into focus."],
+  ["04", "Place", "From a single piece to an international programme, we remain closely involved."],
 ];
+
+const featuredCategories = catalog.filter(({ slug }) =>
+  ["armchairs", "lounge-chairs", "sofas", "tables"].includes(slug),
+);
 
 const featuredProducts = [
   catalog[0].products[0],
@@ -20,8 +24,8 @@ const featuredProducts = [
 
 export function HomePage() {
   usePageMeta(
-    "Custom Furniture",
-    "Made-to-order furniture for hospitality, contract settings and distinctive interiors.",
+    "Portugal-Based Furniture Atelier",
+    "A Portugal-based furniture atelier developing made-to-order furniture for remarkable hospitality and private interiors worldwide.",
     { path: "/", image: "/assets/editorial/home-05.jpg" },
   );
 
@@ -29,21 +33,21 @@ export function HomePage() {
     <div className="home-page page-enter">
       <section className="hero shell">
         <div className="hero__copy">
-          <p className="eyebrow">Custom furniture · London & Portugal</p>
+          <p className="eyebrow">Portugal-based furniture atelier · International projects</p>
           <h1>
-            Furniture, made<br />
-            <em>around a room.</em>
+            Rooted in Portugal.<br />
+            <em>Placed around the world.</em>
           </h1>
           <p className="hero__lead">
-            Distinctive pieces for hotels, restaurants, contract environments and singular interiors — developed with you, made to order.
+            Canvas develops made-to-order furniture and complete programmes for hotels, restaurants, private residences and interiors of distinction.
           </p>
           <div className="hero__actions">
-            <Link className="button button--dark" to="/collection">
-              Explore the collection
+            <Link className="button button--dark" to="/projects">
+              View selected experience
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
-            <Link className="text-link" to="/contact">
-              Discuss a project
+            <Link className="text-link" to="/collection">
+              Explore the furniture library
               <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
           </div>
@@ -56,8 +60,8 @@ export function HomePage() {
             height="400"
           />
           <figcaption>
+            <span>Based in Portugal</span>
             <span>Made to order</span>
-            <span>Contract standard</span>
           </figcaption>
         </figure>
         <a className="hero__scroll" href="#introduction">
@@ -67,15 +71,15 @@ export function HomePage() {
       </section>
 
       <section className="home-intro shell" id="introduction">
-        <p className="eyebrow">Canvas, since 2012</p>
+        <p className="eyebrow">Canvas · Founded 2012</p>
         <div className="home-intro__grid">
-          <h2>Individual by design.<br />Exacting by nature.</h2>
+          <h2>A furniture atelier<br />for rooms that matter.</h2>
           <div>
             <p>
-              We believe in distinctive, functional furniture and meticulous attention to detail. Every chair, table and cabinet can be tailored to the requirements of the project.
+              Canvas works with architects, designers, operators and private clients who expect furniture to carry the same intention as the interior around it.
             </p>
             <p>
-              Our manufacturing background gives designers and clients the freedom to adapt an existing piece or develop something entirely bespoke.
+              Deep production knowledge gives us the freedom to refine an existing form or develop a fully bespoke response — always with material integrity and close personal attention.
             </p>
             <Link className="text-link" to="/studio">
               Our story and approach
@@ -85,11 +89,42 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="world-story">
+        <div className="shell world-story__inner">
+          <figure>
+            <img
+              src="/assets/editorial/home-07.jpg"
+              alt="Close detail of a timber, metal and upholstered Canvas chair"
+              width="980"
+              height="400"
+              loading="lazy"
+            />
+          </figure>
+          <div className="world-story__copy">
+            <p className="eyebrow eyebrow--light">A Portugal-based studio with international reach</p>
+            <h2>One point of view.<br />Many places.</h2>
+            <p>
+              Based in Portugal, Canvas undertakes multiple international projects each year. Our experience extends from established interiors in London and Portugal to project work in Tel Aviv — each commission shaped around its location, programme and audience.
+            </p>
+            <dl>
+              <div><dt>Based</dt><dd>Portugal</dd></div>
+              <div><dt>Reach</dt><dd>International</dd></div>
+              <div><dt>Disciplines</dt><dd>Hospitality · Private · Contract</dd></div>
+              <div><dt>Approach</dt><dd>Made to order</dd></div>
+            </dl>
+            <Link className="text-link text-link--light" to="/projects">
+              Discover our project experience
+              <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="category-section shell">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">The collection</p>
-            <h2>Start with a form.<br />Make it your own.</h2>
+            <p className="eyebrow">The furniture library</p>
+            <h2>A considered library<br />of adaptable forms.</h2>
           </div>
           <Link className="text-link" to="/collection">
             View all {catalog.reduce((sum, category) => sum + category.count, 0)} pieces
@@ -97,7 +132,7 @@ export function HomePage() {
           </Link>
         </div>
         <div className="category-grid">
-          {catalog.map((category, index) => (
+          {featuredCategories.map((category, index) => (
             <article className="category-card" key={category.slug}>
               <Link to={`/collection/${category.slug}`}>
                 <span className="category-card__image">
@@ -135,10 +170,10 @@ export function HomePage() {
             />
           </figure>
           <div>
-            <p className="eyebrow">Made around you</p>
-            <h2>Material is part of the conversation.</h2>
+            <p className="eyebrow">Material intelligence</p>
+            <h2>Luxury begins with what can be felt.</h2>
             <p>
-              Timber, metal, leather and textiles are selected not only for appearance, but for how they feel, age and perform in use. We can adapt dimensions, upholstery and finishes to the interior.
+              Timber, metal, leather and textiles are chosen for touch, longevity and the way they mature in use. Dimensions, upholstery and finish are resolved as part of the interior — never as an afterthought.
             </p>
             <Link className="text-link" to="/contact">
               Tell us what you need
@@ -152,8 +187,8 @@ export function HomePage() {
         <div className="shell">
           <div className="section-heading section-heading--dark">
             <div>
-              <p className="eyebrow eyebrow--light">How we work</p>
-              <h2>One clear process.<br />No off-the-shelf thinking.</h2>
+              <p className="eyebrow eyebrow--light">A personal project service</p>
+              <h2>Close collaboration.<br />Exacting execution.</h2>
             </div>
           </div>
           <ol className="process-grid">
@@ -171,8 +206,8 @@ export function HomePage() {
       <section className="featured-section shell">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">A closer look</p>
-            <h2>Three starting points.</h2>
+            <p className="eyebrow">Selected forms</p>
+            <h2>Three points of departure.</h2>
           </div>
           <p className="section-heading__copy">Each can change in material, colour, dimensions and finish.</p>
         </div>
@@ -184,15 +219,15 @@ export function HomePage() {
       </section>
 
       <section className="editions-tease shell">
-        <div className="editions-tease__number">01 / 01</div>
+        <div className="editions-tease__number">01 — ∞</div>
         <div className="editions-tease__copy">
-          <p className="eyebrow">Coming next · Canvas Editions</p>
-          <h2>One piece.<br />Only once.</h2>
+          <p className="eyebrow">Bespoke by Canvas</p>
+          <h2>No two briefs<br />are the same.</h2>
           <p>
-            A future series of unique, immediately available objects — bringing the same material intelligence to collectible furniture.
+            Bring us a room, a drawing or an ambition. We work directly with every client to develop furniture with the right proportion, presence and performance for its setting.
           </p>
           <Link className="text-link" to="/contact">
-            Register your interest
+            Begin a private project conversation
             <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
           </Link>
         </div>

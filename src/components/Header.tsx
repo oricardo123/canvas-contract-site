@@ -78,7 +78,7 @@ export function Header() {
           ))}
         </nav>
         <a className="header-enquiry" href="mailto:sales@canvascontract.com?subject=Project enquiry">
-          Discuss a project
+          Start a project
           <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />
         </a>
         <button
