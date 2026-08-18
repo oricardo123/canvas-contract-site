@@ -69,7 +69,7 @@ export function CategoryPage() {
         <div className="category-hero__heading">
           <h1>{category.name}</h1>
           <p>
-            {category.count} forms, each ready to be adjusted to the dimensions, material and finish of your project.
+            {category.count} pieces. Dimensions, materials and finishes can be changed for the project.
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ export function ContactPage() {
   const [formNote, setFormNote] = useState("");
   usePageMeta(
     "Contact",
-    "Begin a direct conversation with Canvas about an international project, product specification or bespoke furniture commission.",
+    "Contact Canvas about a furniture project, product specification or custom piece.",
     { path: "/contact", image: "/assets/editorial/contact-phone.jpg" },
   );
 
@@ -29,11 +29,11 @@ export function ContactPage() {
   return (
     <div className="contact-page page-enter">
       <PageIntro
-        eyebrow="The project desk"
-        title="A direct conversation, from first thought to final placement."
+        eyebrow="Contact"
+        title="Tell us about your project."
         copy={
           <p>
-            Share the location, programme, quantity and ambition. A drawing is useful, but a simple description is enough to begin a personal conversation.
+            Send the location, products, quantities and required delivery date. Include drawings or product references if available.
           </p>
         }
         side={<span className="page-count">UK · Portugal · International</span>}
@@ -81,8 +81,8 @@ export function ContactPage() {
 
         <form className="enquiry-form" onSubmit={handleSubmit}>
           <div className="enquiry-form__heading">
-            <p className="eyebrow">Begin a conversation</p>
-            <h2>Tell us about the place.</h2>
+            <p className="eyebrow">Project enquiry</p>
+            <h2>Project details.</h2>
           </div>
           <label>
             <span>Your name</span>
@@ -94,12 +94,12 @@ export function ContactPage() {
           </label>
           <label>
             <span>What can we help with?</span>
-            <select name="projectType" defaultValue="Contract project">
-              <option>Contract project</option>
-              <option>International project</option>
-              <option>Product specification</option>
-              <option>Bespoke piece</option>
-              <option>General enquiry</option>
+            <select name="projectType" defaultValue="Hospitality project">
+              <option>Hospitality project</option>
+              <option>Private project</option>
+              <option>Product information</option>
+              <option>Custom furniture</option>
+              <option>Other enquiry</option>
             </select>
           </label>
           <label>
@@ -108,7 +108,7 @@ export function ContactPage() {
               name="message"
               rows={6}
               required
-              placeholder="Location, quantities, target date and any product references…"
+              placeholder="Location, products, quantities, dates and references…"
             />
           </label>
           <button className="button button--dark button--wide" type="submit">

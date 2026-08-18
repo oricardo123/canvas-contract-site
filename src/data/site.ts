@@ -31,21 +31,21 @@ export const projectGroups = [
   {
     number: "01",
     title: "Hotels",
-    copy: "Guest rooms, suites and shared spaces developed for durability, comfort and a coherent visual language across every area.",
+    copy: "Furniture for guest rooms, suites, restaurants, bars, lobbies and shared areas.",
   },
   {
     number: "02",
     title: "Restaurants & bars",
-    copy: "Seating, tables and case goods shaped around service, atmosphere and the rhythm of hospitality, from one-off features to complete programmes.",
+    copy: "Seating, tables, benches and case goods made for daily hospitality use.",
   },
   {
     number: "03",
     title: "Private interiors",
-    copy: "Singular pieces and complete schemes for residences and private spaces that call for discretion and an individual response.",
+    copy: "Individual pieces and furniture packages for homes and private spaces.",
   },
   {
     number: "04",
-    title: "Bespoke programmes",
-    copy: "Furniture developed around an architect's or designer's brief, with detail, production and delivery managed as one continuous conversation.",
+    title: "Custom furniture",
+    copy: "Furniture developed from an architect's or designer's drawings and specifications.",
   },
 ];

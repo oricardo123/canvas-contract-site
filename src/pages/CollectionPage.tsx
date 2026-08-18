@@ -16,11 +16,11 @@ export function CollectionPage() {
   return (
     <div className="collection-page">
       <PageIntro
-        eyebrow="The collection"
-        title="A library of forms. A starting point for something individual."
+        eyebrow="Collection"
+        title="Furniture by type."
         copy={
           <p>
-            Browse {productCount} reference pieces across eight furniture families. Every model is made to order and can be adapted in material, size, upholstery and finish.
+            Browse {productCount} products in eight categories. Sizes, materials, upholstery and finishes can be changed for the project.
           </p>
         }
         side={<span className="page-count">08 categories</span>}
@@ -54,14 +54,14 @@ export function CollectionPage() {
       </section>
 
       <section className="bespoke-note shell">
-        <p className="eyebrow">Cannot find the exact piece?</p>
+        <p className="eyebrow">Custom furniture</p>
         <div>
-          <h2>That may be the beginning of the brief.</h2>
+          <h2>Send us the brief.</h2>
           <p>
-            Our on-file collection is deliberately flexible. Bring us a reference, a drawing or simply the requirements of the room, and we can develop a bespoke response.
+            Send a drawing, reference or list of requirements. We can adapt a product or develop a new one.
           </p>
           <Link className="text-link" to="/contact">
-            Begin a bespoke enquiry
+            Ask about custom furniture
             <ArrowRight aria-hidden="true" size={18} strokeWidth={1.5} />
           </Link>
         </div>

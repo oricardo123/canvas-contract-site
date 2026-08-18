@@ -7,8 +7,8 @@ export function NotFoundPage() {
   return (
     <section className="not-found shell page-enter">
       <p className="eyebrow">404</p>
-      <h1>This page is no longer in the room.</h1>
-      <p>Return to the collection or begin again from the home page.</p>
+      <h1>Page not found.</h1>
+      <p>Return to the collection or the home page.</p>
       <Link className="button button--dark" to="/">
         <ArrowLeft aria-hidden="true" size={17} strokeWidth={1.5} />
         Back home
