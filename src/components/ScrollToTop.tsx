@@ -6,6 +6,21 @@ export function ScrollToTop() {
   const firstRender = useRef(true);
 
   useEffect(() => {
+    if (location.hash) {
+      firstRender.current = false;
+      window.requestAnimationFrame(() => {
+        const target = document.getElementById(location.hash.slice(1));
+        if (!target) return;
+
+        target.scrollIntoView({ block: "start", behavior: "auto" });
+        const heading = target.querySelector<HTMLElement>("h2, h3");
+        if (!heading) return;
+        heading.tabIndex = -1;
+        heading.focus({ preventScroll: true });
+      });
+      return;
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 
     if (firstRender.current) {
@@ -19,7 +34,7 @@ export function ScrollToTop() {
       heading.tabIndex = -1;
       heading.focus({ preventScroll: true });
     });
-  }, [location.pathname]);
+  }, [location.hash, location.pathname]);
 
   return null;
 }

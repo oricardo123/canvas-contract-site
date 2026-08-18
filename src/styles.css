@@ -104,7 +104,7 @@
     outline: 2px solid var(--ink);
   }
 
-  main h1[tabindex="-1"]:focus {
+  main :is(h1, h2, h3)[tabindex="-1"]:focus {
     outline: none;
   }
 
@@ -897,6 +897,10 @@
     grid-column: span 4;
   }
 
+  .portfolio-card__link {
+    display: block;
+  }
+
   .portfolio-grid--preview .portfolio-card {
     grid-column: span 1;
   }
@@ -945,7 +949,7 @@
     margin-bottom: 1.4rem;
     align-items: baseline;
     gap: 0.8rem;
-    grid-template-columns: 1.8rem minmax(0, 1fr);
+    grid-template-columns: 1.8rem minmax(0, 1fr) auto;
   }
 
   .portfolio-card__title > span {
@@ -957,6 +961,15 @@
   .portfolio-card__title h3 {
     overflow-wrap: anywhere;
     font-size: clamp(1.65rem, 2.3vw, 2.4rem);
+  }
+
+  .portfolio-card__title svg {
+    transition: transform 180ms ease;
+  }
+
+  .portfolio-card__link:hover .portfolio-card__title svg,
+  .portfolio-card__link:focus-visible .portfolio-card__title svg {
+    transform: translateX(0.25rem);
   }
 
   .portfolio-card__caption dl {
@@ -991,6 +1004,7 @@
   .work-project {
     padding-block: clamp(5.5rem, 9vw, 9rem);
     border-bottom: 1px solid var(--line);
+    scroll-margin-top: calc(var(--header-height) + 1rem);
   }
 
   .work-project__header {
@@ -1013,14 +1027,17 @@
     overflow-wrap: anywhere;
   }
 
-  .work-project__header dl {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1.3fr);
+  .work-project__meta {
     padding-top: 0.65rem;
   }
 
-  .work-project__header dl > div {
+  .work-project__meta dl {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1.3fr);
+  }
+
+  .work-project__meta dl > div {
     display: grid;
     gap: 0.45rem;
   }
@@ -1037,6 +1054,10 @@
     max-width: 28rem;
     color: var(--ink-soft);
     font-size: 0.9rem;
+  }
+
+  .work-project__venue-link {
+    margin-top: 1.2rem;
   }
 
   .work-project__gallery {
@@ -2495,7 +2516,7 @@
       grid-template-columns: 2rem minmax(0, 1fr);
     }
 
-    .work-project__header dl {
+    .work-project__meta {
       grid-column: 2;
     }
 
@@ -2718,8 +2739,11 @@
       grid-template-columns: 1.7rem minmax(0, 1fr);
     }
 
-    .work-project__header dl {
+    .work-project__meta {
       grid-column: 1 / -1;
+    }
+
+    .work-project__meta dl {
       grid-template-columns: 1fr;
     }
 

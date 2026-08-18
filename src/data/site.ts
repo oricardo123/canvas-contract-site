@@ -21,6 +21,7 @@ export interface WorkProject {
   name: string;
   location: string;
   scope: string;
+  website: string;
   images: WorkImage[];
   variant: "standard" | "wide" | "tall";
 }
@@ -31,6 +32,7 @@ export const featuredProjects: WorkProject[] = [
     name: "The Norman Hotel",
     location: "Tel Aviv, Israel",
     scope: "Bedroom, restaurant and public-area furniture",
+    website: "https://www.thenorman.com/",
     images: [
       {
         src: "/assets/projects/norman-hotel-tel-aviv-01-bedroom-suite.jpg",
@@ -64,6 +66,7 @@ export const featuredProjects: WorkProject[] = [
     name: "The St. Regis Venice",
     location: "Venice, Italy",
     scope: "Bedroom and public-area furniture",
+    website: "https://www.marriott.com/en-us/hotels/vcexr-the-st-regis-venice/overview/",
     images: [
       {
         src: "/assets/projects/st-regis-hotel-venice-01-bedroom.jpg",
@@ -85,6 +88,7 @@ export const featuredProjects: WorkProject[] = [
     name: "The Arts Club",
     location: "London, UK",
     scope: "Penthouse and restaurant furniture",
+    website: "https://www.theartsclub.co.uk/",
     images: [
       {
         src: "/assets/projects/arts-club-hotel-london-01-penthouse.jpg",
@@ -106,6 +110,7 @@ export const featuredProjects: WorkProject[] = [
     name: "The Duchess",
     location: "Amsterdam, Netherlands",
     scope: "Restaurant furniture and custom seating",
+    website: "https://the-duchess.com/",
     images: [
       {
         src: "/assets/projects/the-duchess-amsterdam-restaurant.jpg",
@@ -121,6 +126,7 @@ export const featuredProjects: WorkProject[] = [
     name: "Maison Bréguet",
     location: "Paris, France",
     scope: "Bedroom, restaurant and public-area furniture",
+    website: "https://en.maisonbreguet.com/",
     images: [
       {
         src: "/assets/projects/maison-breguet-paris-public-area.jpg",
@@ -136,6 +142,7 @@ export const featuredProjects: WorkProject[] = [
     name: "Sartoria",
     location: "London, UK",
     scope: "Restaurant furniture",
+    website: "https://sartoria-restaurant.co.uk/",
     images: [
       {
         src: "/assets/projects/sartoria-london-restaurant.jpg",

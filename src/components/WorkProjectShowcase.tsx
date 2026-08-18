@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import type { WorkProject } from "../data/site";
 
 interface WorkProjectShowcaseProps {
@@ -16,16 +17,28 @@ export function WorkProjectShowcase({ project, index, priority = false }: WorkPr
           {String(index + 1).padStart(2, "0")}
         </span>
         <h2 id={titleId}>{project.name}</h2>
-        <dl>
-          <div>
-            <dt>Location</dt>
-            <dd>{project.location}</dd>
-          </div>
-          <div>
-            <dt>Work</dt>
-            <dd>{project.scope}</dd>
-          </div>
-        </dl>
+        <div className="work-project__meta">
+          <dl>
+            <div>
+              <dt>Location</dt>
+              <dd>{project.location}</dd>
+            </div>
+            <div>
+              <dt>Work</dt>
+              <dd>{project.scope}</dd>
+            </div>
+          </dl>
+          <a
+            className="text-link work-project__venue-link"
+            href={project.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${project.name} official website (opens in a new tab)`}
+          >
+            Official website
+            <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.5} />
+          </a>
+        </div>
       </header>
 
       <div className={`work-project__gallery work-project__gallery--${project.images.length}`}>
