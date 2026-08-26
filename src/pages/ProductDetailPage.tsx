@@ -62,7 +62,7 @@ export function ProductDetailPage() {
           <h1>{product.code}</h1>
           <p className="product-detail__name">{product.alt}</p>
           <p className="product-detail__lead">
-            A reference form from the Canvas collection, ready to be tailored to the setting, use and visual language of your project.
+            Made to order. Dimensions, materials, finishes and upholstery can be changed for the project.
           </p>
           <dl className="spec-list">
             <div><dt>Category</dt><dd>{category.name}</dd></div>
@@ -83,8 +83,8 @@ export function ProductDetailPage() {
 
       <section className="product-specification shell">
         <div>
-          <p className="eyebrow">Construction & finish</p>
-          <h2>Developed for your brief.</h2>
+          <p className="eyebrow">Options</p>
+          <h2>Specifications for your project.</h2>
         </div>
         <ul>
           {(furnitureDetails[category.slug] ?? furnitureDetails.armchairs).map((detail) => (
@@ -104,7 +104,7 @@ export function ProductDetailPage() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">In the same collection</p>
-              <h2>Related forms.</h2>
+              <h2>Related pieces.</h2>
             </div>
             <Link className="text-link" to={`/collection/${category.slug}`}>
               All {category.name.toLowerCase()}

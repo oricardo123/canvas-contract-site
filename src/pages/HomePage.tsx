@@ -2,15 +2,21 @@ import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ContactBanner } from "../components/ContactBanner";
 import { ProductCard } from "../components/ProductCard";
+import { ProjectCard } from "../components/ProjectCard";
 import { catalog } from "../data/catalog";
+import { featuredProjects } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const process = [
-  ["01", "Listen", "The room, the service and the people who will use it come first."],
-  ["02", "Develop", "Proportion, finish and construction are resolved around your brief."],
-  ["03", "Make", "Every piece is produced to order with contract-grade attention to detail."],
-  ["04", "Deliver", "From a singular piece to a complete scheme, we see the project through."],
+  ["01", "Brief", "We review the drawings, quantities, use and delivery requirements."],
+  ["02", "Specify", "We agree the dimensions, materials, finishes and any changes."],
+  ["03", "Make", "Approved furniture moves into production and quality checks."],
+  ["04", "Deliver", "We plan packing, transport and installation requirements."],
 ];
+
+const featuredCategories = catalog.filter(({ slug }) =>
+  ["armchairs", "lounge-chairs", "sofas", "tables"].includes(slug),
+);
 
 const featuredProducts = [
   catalog[0].products[0],
@@ -18,78 +24,84 @@ const featuredProducts = [
   catalog[4].products[3],
 ];
 
+const selectedWork = featuredProjects.slice(0, 3);
+const heroProject = selectedWork[0];
+const heroImage = heroProject.images[0];
+
 export function HomePage() {
   usePageMeta(
-    "Custom Furniture",
-    "Made-to-order furniture for hospitality, contract settings and distinctive interiors.",
-    { path: "/", image: "/assets/editorial/home-05.jpg" },
+    "Canvas Contract Furniture",
+    "Canvas supplies made-to-order furniture for hotels, restaurants and private interiors in Portugal and international markets.",
+    { path: "/", image: heroImage.src },
   );
 
   return (
     <div className="home-page page-enter">
       <section className="hero shell">
         <div className="hero__copy">
-          <p className="eyebrow">Custom furniture · London & Portugal</p>
+          <p className="eyebrow">Contract furniture · Portugal</p>
           <h1>
-            Furniture, made<br />
-            <em>around a room.</em>
+            Furniture made<br />
+            <em>for real interiors.</em>
           </h1>
           <p className="hero__lead">
-            Distinctive pieces for hotels, restaurants, contract environments and singular interiors — developed with you, made to order.
+            Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects.
           </p>
           <div className="hero__actions">
-            <Link className="button button--dark" to="/collection">
-              Explore the collection
+            <Link className="button button--dark" to="/projects">
+              View work
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
-            <Link className="text-link" to="/contact">
-              Discuss a project
+            <Link className="text-link" to="/collection">
+              Browse the collection
               <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
           </div>
         </div>
         <figure className="hero__media">
           <img
-            src="/assets/editorial/home-05.jpg"
-            alt="A sequence of timber dining chairs made for a contract interior"
-            width="980"
-            height="400"
+            src={heroImage.src}
+            alt={heroImage.alt}
+            width={heroImage.width}
+            height={heroImage.height}
+            decoding="async"
           />
           <figcaption>
-            <span>Made to order</span>
-            <span>Contract standard</span>
+            <span>{heroProject.name}</span>
+            <span>{heroProject.location}</span>
           </figcaption>
         </figure>
-        <a className="hero__scroll" href="#introduction">
+        <a className="hero__scroll" href="#selected-projects">
           <ArrowDown aria-hidden="true" size={17} strokeWidth={1.5} />
-          Scroll to discover
+          See our work
         </a>
       </section>
 
-      <section className="home-intro shell" id="introduction">
-        <p className="eyebrow">Canvas, since 2012</p>
-        <div className="home-intro__grid">
-          <h2>Individual by design.<br />Exacting by nature.</h2>
+      <section className="portfolio-section shell" id="selected-projects">
+        <div className="section-heading">
           <div>
-            <p>
-              We believe in distinctive, functional furniture and meticulous attention to detail. Every chair, table and cabinet can be tailored to the requirements of the project.
-            </p>
-            <p>
-              Our manufacturing background gives designers and clients the freedom to adapt an existing piece or develop something entirely bespoke.
-            </p>
-            <Link className="text-link" to="/studio">
-              Our story and approach
+            <p className="eyebrow">Work</p>
+            <h2>Selected work.</h2>
+          </div>
+          <div className="section-heading__aside">
+            <Link className="text-link" to="/projects">
+              View all work
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
           </div>
+        </div>
+        <div className="portfolio-grid portfolio-grid--preview">
+          {selectedWork.map((project, index) => (
+            <ProjectCard project={project} index={index} key={project.slug} />
+          ))}
         </div>
       </section>
 
       <section className="category-section shell">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">The collection</p>
-            <h2>Start with a form.<br />Make it your own.</h2>
+            <p className="eyebrow">Collection</p>
+            <h2>Furniture by type.</h2>
           </div>
           <Link className="text-link" to="/collection">
             View all {catalog.reduce((sum, category) => sum + category.count, 0)} pieces
@@ -97,7 +109,7 @@ export function HomePage() {
           </Link>
         </div>
         <div className="category-grid">
-          {catalog.map((category, index) => (
+          {featuredCategories.map((category, index) => (
             <article className="category-card" key={category.slug}>
               <Link to={`/collection/${category.slug}`}>
                 <span className="category-card__image">
@@ -115,7 +127,7 @@ export function HomePage() {
                 <span className="category-card__meta">
                   <small>{String(index + 1).padStart(2, "0")}</small>
                   <strong>{category.name}</strong>
-                  <small>{category.count} forms</small>
+                  <small>{category.count} pieces</small>
                 </span>
               </Link>
             </article>
@@ -123,25 +135,31 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="material-story">
-        <div className="shell material-story__grid">
+      <section className="world-story">
+        <div className="shell world-story__inner">
           <figure>
             <img
-              src="/assets/editorial/home-03b.jpg"
-              alt="A selection of timber samples showing varied grains and tones"
+              src="/assets/editorial/home-07.jpg"
+              alt="Detail of an upholstered timber chair"
               width="980"
               height="400"
               loading="lazy"
             />
           </figure>
-          <div>
-            <p className="eyebrow">Made around you</p>
-            <h2>Material is part of the conversation.</h2>
+          <div className="world-story__copy">
+            <p className="eyebrow eyebrow--light">About Canvas</p>
+            <h2>Based in Portugal.<br />Working internationally.</h2>
             <p>
-              Timber, metal, leather and textiles are selected not only for appearance, but for how they feel, age and perform in use. We can adapt dimensions, upholstery and finishes to the interior.
+              Canvas supplies furniture for hospitality and private projects, working with designers, architects and project teams.
             </p>
-            <Link className="text-link" to="/contact">
-              Tell us what you need
+            <dl>
+              <div><dt>Founded</dt><dd>2012</dd></div>
+              <div><dt>Based</dt><dd>Portugal</dd></div>
+              <div><dt>Work</dt><dd>Hospitality · Private</dd></div>
+              <div><dt>Service</dt><dd>Made to order</dd></div>
+            </dl>
+            <Link className="text-link text-link--light" to="/studio">
+              About Canvas
               <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
             </Link>
           </div>
@@ -153,7 +171,7 @@ export function HomePage() {
           <div className="section-heading section-heading--dark">
             <div>
               <p className="eyebrow eyebrow--light">How we work</p>
-              <h2>One clear process.<br />No off-the-shelf thinking.</h2>
+              <h2>From brief to delivery.</h2>
             </div>
           </div>
           <ol className="process-grid">
@@ -171,10 +189,10 @@ export function HomePage() {
       <section className="featured-section shell">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">A closer look</p>
-            <h2>Three starting points.</h2>
+            <p className="eyebrow">Furniture</p>
+            <h2>Selected pieces.</h2>
           </div>
-          <p className="section-heading__copy">Each can change in material, colour, dimensions and finish.</p>
+          <p className="section-heading__copy">Dimensions, materials, colours and finishes can be adjusted.</p>
         </div>
         <div className="featured-products">
           {featuredProducts.map((product) => (
@@ -184,22 +202,22 @@ export function HomePage() {
       </section>
 
       <section className="editions-tease shell">
-        <div className="editions-tease__number">01 / 01</div>
+        <div className="editions-tease__number">Made to order</div>
         <div className="editions-tease__copy">
-          <p className="eyebrow">Coming next · Canvas Editions</p>
-          <h2>One piece.<br />Only once.</h2>
+          <p className="eyebrow">Custom furniture</p>
+          <h2>Made for the project.</h2>
           <p>
-            A future series of unique, immediately available objects — bringing the same material intelligence to collectible furniture.
+            We can adapt furniture from the collection or develop new pieces from a supplied brief.
           </p>
           <Link className="text-link" to="/contact">
-            Register your interest
+            Send a project enquiry
             <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
           </Link>
         </div>
         <figure>
           <img
             src="/assets/editorial/home-11.jpg"
-            alt="Close detail of a solid timber furniture joint"
+            alt="Detail of a timber furniture joint"
             width="980"
             height="400"
             loading="lazy"

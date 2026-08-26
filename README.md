@@ -4,7 +4,7 @@ A responsive React rebuild of the Canvas Contract Furniture website. The design 
 
 ## Included
 
-- Home, Collection, Studio, Projects and Contact pages
+- Home, Collection, Studio, Work and Contact pages
 - Eight furniture categories
 - 984 searchable product records and dynamic product-detail pages
 - Redirects for the current `.html` routes and product URLs
@@ -43,6 +43,10 @@ The current contact form prepares a pre-filled email in the visitor's email appl
 
 ## Brand asset
 
-The supplied logo screenshot is used without altering its source pixels and cropped only through CSS. For the sharpest production result, replace it later with the official SVG or a transparent high-resolution PNG at the same path: `public/assets/brand/canvas-logo.png`.
+The supplied screenshot remains preserved at `public/assets/brand/canvas-logo.png`.
+The website uses the derived transparent asset at
+`public/assets/brand/canvas-logo-transparent.png` so the header, footer and
+browser icon have no white rectangle. For the sharpest production result,
+replace the derived file later with the official transparent SVG or master PNG.
 
 The legacy source only provides 100×100 px artwork for ECB-23, ECB-25 and CAB-01 through CAB-06. Those eight records are intentionally shown at their original size instead of being blurred by enlargement. Replace their `-large.jpg` files when original high-resolution photography becomes available.

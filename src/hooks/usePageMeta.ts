@@ -2,8 +2,9 @@ import { useEffect } from "react";
 
 const SITE_ORIGIN = "https://www.canvascontract.com";
 const SITE_NAME = "Canvas Contract Furniture";
+const REVIEW_MODE = true;
 const DEFAULT_DESCRIPTION =
-  "Canvas designs and supplies made-to-order furniture for hotels, restaurants, bars and distinctive interiors.";
+  "Made-to-order furniture for hotels, restaurants and private interiors. Based in Portugal and working internationally.";
 const DEFAULT_IMAGE = "/assets/editorial/home-05.jpg";
 
 interface PageMetaOptions {
@@ -56,7 +57,7 @@ export function usePageMeta(
     setCanonical(canonicalUrl);
 
     setMeta("name", "description", pageDescription);
-    setMeta("name", "robots", noIndex ? "noindex, nofollow" : "index, follow");
+    setMeta("name", "robots", noIndex || REVIEW_MODE ? "noindex, nofollow" : "index, follow");
 
     setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", pageDescription);

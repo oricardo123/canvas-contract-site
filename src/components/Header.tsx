@@ -5,8 +5,8 @@ import { BrandLogo } from "./BrandLogo";
 
 const navigation = [
   { label: "Collection", to: "/collection" },
-  { label: "Studio", to: "/studio" },
-  { label: "Projects", to: "/projects" },
+  { label: "About", to: "/studio" },
+  { label: "Work", to: "/projects" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -78,7 +78,7 @@ export function Header() {
           ))}
         </nav>
         <a className="header-enquiry" href="mailto:sales@canvascontract.com?subject=Project enquiry">
-          Discuss a project
+          Enquire
           <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />
         </a>
         <button
@@ -112,7 +112,7 @@ export function Header() {
           ))}
         </nav>
         <div className="mobile-menu__contact">
-          <p>Begin a conversation</p>
+          <p>Contact</p>
           <a href="mailto:sales@canvascontract.com">sales@canvascontract.com</a>
           <a href="tel:+351914827020">+351 914 827020</a>
         </div>

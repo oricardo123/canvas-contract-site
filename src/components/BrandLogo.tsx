@@ -13,10 +13,10 @@ export function BrandLogo({ light = false }: BrandLogoProps) {
     >
       <span className="brand-logo__crop" aria-hidden="true">
         <img
-          src="/assets/brand/canvas-logo.png"
+          src="/assets/brand/canvas-logo-transparent.png"
           alt=""
-          width="1907"
-          height="1005"
+          width="1672"
+          height="941"
         />
       </span>
     </Link>

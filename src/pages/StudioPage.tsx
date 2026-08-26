@@ -4,27 +4,27 @@ import { ContactBanner } from "../components/ContactBanner";
 import { PageIntro } from "../components/PageIntro";
 import { usePageMeta } from "../hooks/usePageMeta";
 
-const values = [
-  ["01", "Understanding", "We begin with the room: how it should feel, how it will be used and what the furniture must do."],
-  ["02", "Flexibility", "An existing form can change in proportion, material and detail, or become the basis for something entirely new."],
-  ["03", "Integrity", "Clear communication, sound construction and an exacting finish underpin every commission."],
+const services = [
+  ["01", "Specify", "Products, dimensions, materials, finishes and quantities are agreed before production."],
+  ["02", "Produce", "Furniture is made through specialist manufacturers and checked before dispatch."],
+  ["03", "Deliver", "Packing and transport are planned around the site and delivery dates."],
 ];
 
 export function StudioPage() {
   usePageMeta(
-    "Studio",
-    "Discover the experience, materials and made-to-order approach behind Canvas Contract Furniture.",
+    "About Canvas",
+    "Canvas is a Portugal-based furniture company supplying made-to-order furniture for contract and private projects.",
     { path: "/studio", image: "/assets/editorial/home-07.jpg" },
   );
 
   return (
-    <div className="studio-page">
+    <div className="studio-page page-enter">
       <PageIntro
-        eyebrow="The studio"
-        title="A practical understanding of furniture. A lasting belief in design."
+        eyebrow="About Canvas"
+        title="Furniture for contract and private projects."
         copy={
           <p>
-            Canvas brings together design sensitivity, manufacturing knowledge and commercial experience to help clients realise both standard schemes and singular, ambitious pieces.
+            Founded by Carlos de Almeida in 2012, Canvas is based in Portugal and works with clients internationally.
           </p>
         }
         side={<span className="page-count">Est. 2012</span>}
@@ -34,48 +34,45 @@ export function StudioPage() {
         <figure className="studio-lead__image">
           <img
             src="/assets/editorial/home-07.jpg"
-            alt="Close detail of cream leather upholstery, timber and polished metal"
+            alt="Detail of upholstery, timber and polished metal"
             width="980"
             height="400"
           />
         </figure>
         <div className="studio-lead__copy">
-          <p className="eyebrow">Canvas: design inspiring</p>
-          <h2>Expertise from the workshop to the finished interior.</h2>
+          <p className="eyebrow">What we do</p>
+          <h2>From product selection to delivery.</h2>
           <p>
-            Canvas supplies furniture from experienced European makers and develops original pieces with its manufacturing team for bespoke projects.
+            Canvas supplies seating, tables, sofas, benches and case goods. Products from the collection can be changed in size, material and finish.
           </p>
           <p>
-            This breadth makes it possible to work at different scales — from one carefully resolved object to a complete contract programme.
+            New furniture can also be developed from drawings or a project brief.
           </p>
         </div>
       </section>
 
       <section className="origin-story shell">
         <div className="origin-story__title">
-          <p className="eyebrow">The background</p>
-          <h2>A career built through materials, making and people.</h2>
+          <p className="eyebrow">Founder</p>
+          <h2>Carlos de Almeida.</h2>
         </div>
         <div className="origin-story__copy">
           <p>
-            Founder Carlos de Almeida's interest in furniture began with an early understanding of leather, timber and how materials work together. Cabinetmaking training and marketing management later opened a career spanning retail in Sydney, production, export and furniture manufacture in Portugal.
+            Carlos de Almeida's background includes cabinetmaking training, furniture retail, production, export and manufacture in Portugal.
           </p>
           <p>
-            Work with designers and architects — including Gal Tevet, Jorge Gonçalves and Siza Vieira — broadened that experience into furniture collections and hospitality projects for international markets.
-          </p>
-          <p>
-            Canvas was a natural evolution: a studio focused on customised furniture for hotels, restaurants, bars and high-end interiors, grounded equally in creative possibility and production reality.
+            After working with designers, architects and manufacturers across international markets, he founded Canvas to supply made-to-order furniture for hospitality and private projects.
           </p>
         </div>
-        <div className="craft-strip" aria-label="Furniture making details">
+        <div className="craft-strip" aria-label="Furniture production details">
           <figure>
             <img src="/assets/editorial/craft-01.jpg" alt="Hands arranging lengths of timber veneer" width="172" height="167" loading="lazy" />
           </figure>
           <figure>
-            <img src="/assets/editorial/craft-02.jpg" alt="Craftsperson shaping upholstery by hand" width="172" height="83" loading="lazy" />
+            <img src="/assets/editorial/craft-02.jpg" alt="A craftsperson shaping upholstery by hand" width="172" height="83" loading="lazy" />
           </figure>
           <figure>
-            <img src="/assets/editorial/craft-03.jpg" alt="Upholsterer stitching leather on an industrial sewing machine" width="172" height="166" loading="lazy" />
+            <img src="/assets/editorial/craft-03.jpg" alt="An upholsterer stitching leather" width="172" height="166" loading="lazy" />
           </figure>
         </div>
       </section>
@@ -84,12 +81,12 @@ export function StudioPage() {
         <div className="shell">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">What guides us</p>
-              <h2>Design is only complete when it works.</h2>
+              <p className="eyebrow">Service</p>
+              <h2>A clear production process.</h2>
             </div>
           </div>
           <ol className="values-grid">
-            {values.map(([number, title, copy]) => (
+            {services.map(([number, title, copy]) => (
               <li key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>
@@ -102,39 +99,20 @@ export function StudioPage() {
 
       <section className="studio-focus shell">
         <div>
-          <p className="eyebrow">Our focus today</p>
-          <h2>Hospitality, contract and high-end interiors.</h2>
+          <p className="eyebrow">Work</p>
+          <h2>Portugal and international work.</h2>
         </div>
         <div>
           <p>
-            We work with interior designers, architects, operators and private clients who want furniture to belong to a space rather than simply occupy it.
+            Canvas works with interior designers, architects, operators and private clients on projects in Portugal and abroad.
           </p>
           <Link className="text-link" to="/projects">
-            View selected project experience
+            View work
             <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
           </Link>
         </div>
       </section>
 
-      <section className="name-story shell">
-        <p className="eyebrow">Why Canvas?</p>
-        <div>
-          <article>
-            <span>01</span>
-            <h2>Strength.</h2>
-            <p>
-              Canvas has covered furniture and formed hard-working objects for centuries. The name speaks to the durability required of every contract piece.
-            </p>
-          </article>
-          <article>
-            <span>02</span>
-            <h2>Possibility.</h2>
-            <p>
-              A blank canvas is an invitation to design — an open surface on which the right response to a client's requirements can be created.
-            </p>
-          </article>
-        </div>
-      </section>
       <ContactBanner />
     </div>
   );
