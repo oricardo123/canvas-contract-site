@@ -64,23 +64,7 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <div className="site-header__inner shell">
-        <BrandLogo />
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {navigation.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => (isActive ? "is-active" : undefined)}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-        <a className="header-enquiry" href="mailto:sales@canvascontract.com?subject=Project enquiry">
-          Enquire
-          <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />
-        </a>
+      <nav className="site-header__inner shell" aria-label="Primary navigation">
         <button
           ref={toggleRef}
           className="menu-toggle"
@@ -92,7 +76,23 @@ export function Header() {
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
-      </div>
+        <BrandLogo />
+        <div className="desktop-nav">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) => `desktop-nav__link${isActive ? " is-active" : ""}`}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+          <a className="header-enquiry" href="mailto:sales@canvascontract.com?subject=Project enquiry">
+            Enquire
+            <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />
+          </a>
+        </div>
+      </nav>
 
       <div
         ref={menuRef}

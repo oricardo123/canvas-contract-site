@@ -1,5 +1,6 @@
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CategoryImage } from "../components/CategoryImage";
 import { ContactBanner } from "../components/ContactBanner";
 import { ProductCard } from "../components/ProductCard";
 import { ProjectCard } from "../components/ProjectCard";
@@ -25,25 +26,42 @@ const featuredProducts = [
 ];
 
 const selectedWork = featuredProjects.slice(0, 3);
-const heroProject = selectedWork[0];
-const heroImage = heroProject.images[0];
+const heroProject = featuredProjects.find(({ slug }) => slug === "st-regis-venice")!;
+const heroImage = heroProject.images.find(({ src }) =>
+  src.endsWith("st-regis-hotel-venice-02-public-area.jpg"),
+)!;
 
 export function HomePage() {
   usePageMeta(
     "Canvas Contract Furniture",
     "Canvas supplies made-to-order furniture for hotels, restaurants and private interiors in Portugal and international markets.",
-    { path: "/", image: heroImage.src },
+    { path: "/", image: selectedWork[0].images[0].src },
   );
 
   return (
     <div className="home-page page-enter">
       <section className="hero shell">
-        <div className="hero__copy">
-          <p className="eyebrow">Contract furniture · Portugal</p>
+        <div className="hero__heading">
+          <p className="eyebrow">Custom furniture</p>
           <h1>
-            Furniture made<br />
-            <em>for real interiors.</em>
+            <span>Fine furniture</span>{" "}
+            <span>for customized projects</span>
           </h1>
+        </div>
+        <figure className="hero__media">
+          <img
+            src={heroImage.src}
+            alt={heroImage.alt}
+            width={heroImage.width}
+            height={heroImage.height}
+            decoding="async"
+            fetchPriority="high"
+          />
+          <figcaption>
+            <span>{heroProject.name}</span>
+          </figcaption>
+        </figure>
+        <div className="hero__copy">
           <p className="hero__lead">
             Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects.
           </p>
@@ -58,23 +76,6 @@ export function HomePage() {
             </Link>
           </div>
         </div>
-        <figure className="hero__media">
-          <img
-            src={heroImage.src}
-            alt={heroImage.alt}
-            width={heroImage.width}
-            height={heroImage.height}
-            decoding="async"
-          />
-          <figcaption>
-            <span>{heroProject.name}</span>
-            <span>{heroProject.location}</span>
-          </figcaption>
-        </figure>
-        <a className="hero__scroll" href="#selected-projects">
-          <ArrowDown aria-hidden="true" size={17} strokeWidth={1.5} />
-          See our work
-        </a>
       </section>
 
       <section className="portfolio-section shell" id="selected-projects">
@@ -113,11 +114,9 @@ export function HomePage() {
             <article className="category-card" key={category.slug}>
               <Link to={`/collection/${category.slug}`}>
                 <span className="category-card__image">
-                  <img
+                  <CategoryImage
                     src={category.image}
                     alt=""
-                    width="400"
-                    height="330"
                     loading="lazy"
                   />
                   <span aria-hidden="true" className="category-card__arrow">
@@ -139,10 +138,11 @@ export function HomePage() {
         <div className="shell world-story__inner">
           <figure>
             <img
-              src="/assets/editorial/home-07.jpg"
-              alt="Detail of an upholstered timber chair"
-              width="980"
-              height="400"
+              src="/assets/editorial/canvas-table-chair-email-2025.jpg"
+              alt="Sculpted timber table and upholstered chair from the Canvas portfolio"
+              width="4032"
+              height="3024"
+              style={{ objectPosition: "65% 60%" }}
               loading="lazy"
             />
           </figure>
@@ -216,10 +216,11 @@ export function HomePage() {
         </div>
         <figure>
           <img
-            src="/assets/editorial/home-11.jpg"
-            alt="Detail of a timber furniture joint"
-            width="980"
-            height="400"
+            src="/assets/editorial/canvas-table-detail-email-2025.jpg"
+            alt="Rounded timber tabletop and sculpted support from the Canvas portfolio"
+            width="3024"
+            height="4032"
+            style={{ objectPosition: "50% 35%" }}
             loading="lazy"
           />
         </figure>

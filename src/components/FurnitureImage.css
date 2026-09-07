@@ -1,0 +1,33 @@
+.furniture-image {
+  display: block;
+  width: min(100cqw, calc(100cqh * var(--furniture-image-ratio)), var(--furniture-image-max-width));
+  height: min(100cqh, calc(100cqw / var(--furniture-image-ratio)), var(--furniture-image-max-height));
+  object-fit: contain;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.furniture-image--cover {
+  width: max(calc(100cqw * var(--furniture-image-cover-x)), calc(100cqh * var(--furniture-image-ratio) * var(--furniture-image-cover-y)));
+  height: max(calc(100cqh * var(--furniture-image-cover-y)), calc(100cqw / var(--furniture-image-ratio) * var(--furniture-image-cover-x)));
+  max-width: none;
+}
+
+.product-detail__visual {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 36rem;
+  place-items: center;
+  container-type: size;
+}
+
+.contact-photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  place-items: center;
+  container-type: size;
+}

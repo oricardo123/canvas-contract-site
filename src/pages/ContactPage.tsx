@@ -1,6 +1,7 @@
 import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import type { FormEvent } from "react";
 import { useState } from "react";
+import { FurnitureImage } from "../components/FurnitureImage";
 import { PageIntro } from "../components/PageIntro";
 import { contact } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
@@ -10,7 +11,7 @@ export function ContactPage() {
   usePageMeta(
     "Contact",
     "Contact Canvas about a furniture project, product specification or custom piece.",
-    { path: "/contact", image: "/assets/editorial/contact-phone.jpg" },
+    { path: "/contact", image: "/assets/editorial/canvas-armchair-email-2025.jpg" },
   );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -68,13 +69,17 @@ export function ContactPage() {
             </div>
           </div>
           <figure>
-            <img
-              src="/assets/editorial/contact-phone.jpg"
-              alt="Vintage rotary telephone"
-              width="280"
-              height="280"
-              loading="lazy"
-            />
+            <div className="contact-photo">
+              <FurnitureImage
+                src="/assets/editorial/canvas-armchair-email-2025.jpg"
+                alt="Upholstered armchair from the Canvas furniture portfolio"
+                width={3024}
+                height={4032}
+                fit="cover"
+                sourceInset={0}
+                style={{ alignSelf: "end" }}
+              />
+            </div>
             <figcaption>Prefer to talk? Call our UK or Portugal number.</figcaption>
           </figure>
         </div>

@@ -54,7 +54,9 @@ export function ProductDetailPage() {
 
       <section className="product-detail__main shell">
         <figure className="product-detail__image">
-          <ProductImage product={product} eager />
+          <div className="product-detail__visual">
+            <ProductImage product={product} eager />
+          </div>
           <figcaption>Reference {product.code} · Made to order</figcaption>
         </figure>
         <div className="product-detail__info">

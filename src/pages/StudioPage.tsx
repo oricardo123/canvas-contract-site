@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ContactBanner } from "../components/ContactBanner";
+import { FurnitureImage } from "../components/FurnitureImage";
 import { PageIntro } from "../components/PageIntro";
 import { usePageMeta } from "../hooks/usePageMeta";
 
@@ -14,7 +15,7 @@ export function StudioPage() {
   usePageMeta(
     "About Canvas",
     "Canvas is a Portugal-based furniture company supplying made-to-order furniture for contract and private projects.",
-    { path: "/studio", image: "/assets/editorial/home-07.jpg" },
+    { path: "/studio", image: "/assets/editorial/canvas-loungers-email-2025.jpg" },
   );
 
   return (
@@ -33,10 +34,11 @@ export function StudioPage() {
       <section className="studio-lead shell">
         <figure className="studio-lead__image">
           <img
-            src="/assets/editorial/home-07.jpg"
-            alt="Detail of upholstery, timber and polished metal"
-            width="980"
-            height="400"
+            src="/assets/editorial/canvas-loungers-email-2025.jpg"
+            alt="Upholstered timber loungers from the Canvas furniture portfolio"
+            width="3783"
+            height="2825"
+            style={{ objectPosition: "50% 100%" }}
           />
         </figure>
         <div className="studio-lead__copy">
@@ -52,27 +54,36 @@ export function StudioPage() {
       </section>
 
       <section className="origin-story shell">
-        <div className="origin-story__title">
-          <p className="eyebrow">Founder</p>
-          <h2>Carlos de Almeida.</h2>
+        <figure className="founder-portrait">
+          <img
+            src="/assets/editorial/carlos-de-almeida-portrait-2017.jpg"
+            alt="Carlos de Almeida, founder of Canvas"
+            width="1602"
+            height="1602"
+            loading="lazy"
+          />
+          <figcaption>Photograph: José Luís Almeida</figcaption>
+        </figure>
+        <div className="origin-story__profile">
+          <div className="origin-story__title">
+            <p className="eyebrow">Founder</p>
+            <h2>Carlos de Almeida.</h2>
+          </div>
+          <div className="origin-story__copy">
+            <p>
+              Carlos de Almeida's background includes cabinetmaking training, furniture retail, production, export and manufacture in Portugal.
+            </p>
+            <p>
+              After working with designers, architects and manufacturers across international markets, he founded Canvas to supply made-to-order furniture for hospitality and private projects.
+            </p>
+          </div>
         </div>
-        <div className="origin-story__copy">
-          <p>
-            Carlos de Almeida's background includes cabinetmaking training, furniture retail, production, export and manufacture in Portugal.
-          </p>
-          <p>
-            After working with designers, architects and manufacturers across international markets, he founded Canvas to supply made-to-order furniture for hospitality and private projects.
-          </p>
-        </div>
-        <div className="craft-strip" aria-label="Furniture production details">
+        <div className="craft-strip" aria-label="Furniture from the Canvas portfolio">
           <figure>
-            <img src="/assets/editorial/craft-01.jpg" alt="Hands arranging lengths of timber veneer" width="172" height="167" loading="lazy" />
+            <FurnitureImage src="/assets/editorial/canvas-lounger-interior-email-2025.jpg" alt="Upholstered timber lounger in a finished interior from the Canvas portfolio" width={1024} height={752} fit="cover" sourceInset={0} style={{ alignSelf: "end" }} />
           </figure>
           <figure>
-            <img src="/assets/editorial/craft-02.jpg" alt="A craftsperson shaping upholstery by hand" width="172" height="83" loading="lazy" />
-          </figure>
-          <figure>
-            <img src="/assets/editorial/craft-03.jpg" alt="An upholsterer stitching leather" width="172" height="166" loading="lazy" />
+            <FurnitureImage src="/assets/editorial/canvas-sideboard-email-2025.jpg" alt="Figured timber sideboard with decorative metal handles from the Canvas portfolio" width={4032} height={3024} fit="cover" sourceInset={0} />
           </figure>
         </div>
       </section>
@@ -97,21 +108,15 @@ export function StudioPage() {
         </div>
       </section>
 
-      <section className="studio-focus shell">
-        <div>
-          <p className="eyebrow">Work</p>
-          <h2>Portugal and international work.</h2>
-        </div>
-        <div>
-          <p>
-            Canvas works with interior designers, architects, operators and private clients on projects in Portugal and abroad.
-          </p>
-          <Link className="text-link" to="/projects">
-            View work
-            <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
-          </Link>
-        </div>
-      </section>
+      <div className="studio-focus shell">
+        <p>
+          Canvas works with interior designers, architects, operators and private clients on projects in Portugal and abroad.
+        </p>
+        <Link className="text-link" to="/projects">
+          View work
+          <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
+        </Link>
+      </div>
 
       <ContactBanner />
     </div>

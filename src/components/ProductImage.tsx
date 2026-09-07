@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCategory, getProductImage } from "../data/catalog";
 import type { Product } from "../types";
+import { FurnitureImage } from "./FurnitureImage";
 
 interface ProductImageProps {
   product: Product;
@@ -82,13 +83,13 @@ export function ProductImage({ product, className, eager = false }: ProductImage
     .join(" ");
 
   return (
-    <img
+    <FurnitureImage
       className={classes}
       src={source}
       alt={product.alt || `${product.categoryName}, ${product.code}`}
       width={presentation.width}
       height={presentation.height}
-      style={{ aspectRatio: `${presentation.width} / ${presentation.height}` }}
+      preserveSourceSize={presentation.preserveSourceSize}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
       onError={() => {

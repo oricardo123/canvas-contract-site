@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CategoryImage } from "../components/CategoryImage";
 import { CategoryNav } from "../components/CategoryNav";
 import { ContactBanner } from "../components/ContactBanner";
 import { PageIntro } from "../components/PageIntro";
@@ -32,11 +33,9 @@ export function CollectionPage() {
           <article className="collection-category" key={category.slug}>
             <Link to={`/collection/${category.slug}`}>
               <span className="collection-category__image">
-                <img
+                <CategoryImage
                   src={category.image}
                   alt={`${category.name} from the Canvas furniture collection`}
-                  width="400"
-                  height="330"
                   loading={index < 2 ? "eager" : "lazy"}
                 />
                 <span className="collection-category__action" aria-hidden="true">
