@@ -1240,8 +1240,8 @@
   .world-story__inner {
     display: grid;
     align-items: center;
-    gap: 3rem clamp(4rem, 9vw, 11rem);
-    grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+    gap: 2rem clamp(2.5rem, 6vw, 6rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .world-story figure {
@@ -1257,13 +1257,12 @@
   }
 
   .world-story__copy > .eyebrow {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1rem;
   }
 
   .world-story__copy h2 {
-    max-width: 14ch;
-    margin-bottom: 2rem;
-    font-size: clamp(3.3rem, 5.4vw, 6.1rem);
+    margin-bottom: 1.25rem;
+    font-size: clamp(2.5rem, 3.8vw, 4rem);
   }
 
   .world-story__copy > p:not(.eyebrow) {
@@ -1274,15 +1273,15 @@
 
   .world-story dl {
     display: grid;
-    margin-block: 3rem 2.2rem;
+    margin-block: 1.5rem 1.25rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     border-top: 1px solid var(--line-dark);
   }
 
   .world-story dl > div {
     display: grid;
-    min-height: 6rem;
-    padding: 1rem 1.25rem 1rem 0;
+    min-height: 4.5rem;
+    padding: 0.75rem 1.25rem 0.75rem 0;
     align-content: space-between;
     border-bottom: 1px solid var(--line-dark);
   }
@@ -2878,7 +2877,11 @@
     }
 
     .world-story__inner {
-      gap: 3rem;
+      gap: 2rem;
+    }
+
+    .world-story__copy h2 {
+      font-size: clamp(2rem, 8.5vw, 2.75rem);
     }
 
     .world-story figure {
