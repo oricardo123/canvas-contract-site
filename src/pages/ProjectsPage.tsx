@@ -1,5 +1,4 @@
 import { ContactBanner } from "../components/ContactBanner";
-import { PageIntro } from "../components/PageIntro";
 import { WorkProjectShowcase } from "../components/WorkProjectShowcase";
 import { featuredProjects, projectArchive } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
@@ -13,16 +12,9 @@ export function ProjectsPage() {
 
   return (
     <div className="projects-page page-enter">
-      <PageIntro
-        eyebrow="Work"
-        title="Selected projects."
-        copy={
-          <p>
-            Furniture supplied for hotels and restaurants in Europe and beyond.
-          </p>
-        }
-        side={<span className="page-count">International</span>}
-      />
+      <section className="work-intro shell">
+        <h1 className="eyebrow">Work</h1>
+      </section>
 
       <section className="work-showcase" aria-label="Selected work">
         {featuredProjects.map((project, index) => (
@@ -38,8 +30,8 @@ export function ProjectsPage() {
       <section className="project-index shell" aria-labelledby="project-index-title">
         <div className="project-index__intro">
           <p className="eyebrow">Archive</p>
-          <h2 id="project-index-title">Project record.</h2>
-          <p>A wider selection of hospitality and private projects.</p>
+          <h2 id="project-index-title">Project record</h2>
+          <p>A wider selection of hospitality and private projects</p>
         </div>
         <ol>
           {projectArchive.map((project, index) => (

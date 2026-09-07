@@ -6,9 +6,9 @@ import { PageIntro } from "../components/PageIntro";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const services = [
-  ["01", "Specify", "Products, dimensions, materials, finishes and quantities are agreed before production."],
-  ["02", "Produce", "Furniture is made through specialist manufacturers and checked before dispatch."],
-  ["03", "Deliver", "Packing and transport are planned around the site and delivery dates."],
+  ["01", "Specify", "Products, dimensions, materials, finishes and quantities are agreed before production"],
+  ["02", "Produce", "Furniture is made through specialist manufacturers and checked before dispatch"],
+  ["03", "Deliver", "Packing and transport are planned around the site and delivery dates"],
 ];
 
 export function StudioPage() {
@@ -22,10 +22,10 @@ export function StudioPage() {
     <div className="studio-page page-enter">
       <PageIntro
         eyebrow="About Canvas"
-        title="Furniture for contract and private projects."
+        title="Furniture for contract and private projects"
         copy={
           <p>
-            Founded by Carlos de Almeida in 2012, Canvas is based in Portugal and works with clients internationally.
+            Founded by Carlos de Almeida in 2012, Canvas is based in Portugal and works with clients internationally
           </p>
         }
         side={<span className="page-count">Est. 2012</span>}
@@ -43,12 +43,12 @@ export function StudioPage() {
         </figure>
         <div className="studio-lead__copy">
           <p className="eyebrow">What we do</p>
-          <h2>From product selection to delivery.</h2>
+          <h2>From product selection to delivery</h2>
           <p>
-            Canvas supplies seating, tables, sofas, benches and case goods. Products from the collection can be changed in size, material and finish.
+            Canvas supplies seating, tables, sofas, benches and case goods. Products from the collection can be changed in size, material and finish
           </p>
           <p>
-            New furniture can also be developed from drawings or a project brief.
+            New furniture can also be developed from drawings or a project brief
           </p>
         </div>
       </section>
@@ -67,14 +67,14 @@ export function StudioPage() {
         <div className="origin-story__profile">
           <div className="origin-story__title">
             <p className="eyebrow">Founder</p>
-            <h2>Carlos de Almeida.</h2>
+            <h2>Carlos de Almeida</h2>
           </div>
           <div className="origin-story__copy">
             <p>
-              Carlos de Almeida's background includes cabinetmaking training, furniture retail, production, export and manufacture in Portugal.
+              Carlos de Almeida's background includes cabinetmaking training, furniture retail, production, export and manufacture in Portugal
             </p>
             <p>
-              After working with designers, architects and manufacturers across international markets, he founded Canvas to supply made-to-order furniture for hospitality and private projects.
+              After working with designers, architects and manufacturers across international markets, he founded Canvas to supply made-to-order furniture for hospitality and private projects
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export function StudioPage() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Service</p>
-              <h2>A clear production process.</h2>
+              <h2>A clear production process</h2>
             </div>
           </div>
           <ol className="values-grid">
@@ -110,7 +110,7 @@ export function StudioPage() {
 
       <div className="studio-focus shell">
         <p>
-          Canvas works with interior designers, architects, operators and private clients on projects in Portugal and abroad.
+          Canvas works with interior designers, architects, operators and private clients on projects in Portugal and abroad
         </p>
         <Link className="text-link" to="/projects">
           View work

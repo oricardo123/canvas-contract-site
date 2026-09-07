@@ -9,10 +9,10 @@ import { featuredProjects } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const process = [
-  ["01", "Brief", "We review the drawings, quantities, use and delivery requirements."],
-  ["02", "Specify", "We agree the dimensions, materials, finishes and any changes."],
-  ["03", "Make", "Approved furniture moves into production and quality checks."],
-  ["04", "Deliver", "We plan packing, transport and installation requirements."],
+  ["01", "Brief", "We review the drawings, quantities, use and delivery requirements"],
+  ["02", "Specify", "We agree the dimensions, materials, finishes and any changes"],
+  ["03", "Make", "Approved furniture moves into production and quality checks"],
+  ["04", "Deliver", "We plan packing, transport and installation requirements"],
 ];
 
 const featuredCategories = catalog.filter(({ slug }) =>
@@ -63,7 +63,7 @@ export function HomePage() {
         </figure>
         <div className="hero__copy">
           <p className="hero__lead">
-            Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects.
+            Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects
           </p>
           <div className="hero__actions">
             <Link className="button button--dark" to="/projects">
@@ -82,7 +82,7 @@ export function HomePage() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Work</p>
-            <h2>Selected work.</h2>
+            <h2>Selected work</h2>
           </div>
           <div className="section-heading__aside">
             <Link className="text-link" to="/projects">
@@ -102,7 +102,7 @@ export function HomePage() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Collection</p>
-            <h2>Furniture by type.</h2>
+            <h2>Furniture by type</h2>
           </div>
           <Link className="text-link" to="/collection">
             View all {catalog.reduce((sum, category) => sum + category.count, 0)} pieces
@@ -148,9 +148,9 @@ export function HomePage() {
           </figure>
           <div className="world-story__copy">
             <p className="eyebrow eyebrow--light">About Canvas</p>
-            <h2>Based in Portugal.<br />Working internationally.</h2>
+            <h2>Based in Portugal<br />Working internationally</h2>
             <p>
-              Canvas supplies furniture for hospitality and private projects, working with designers, architects and project teams.
+              Canvas supplies furniture for hospitality and private projects, working with designers, architects and project teams
             </p>
             <dl>
               <div><dt>Founded</dt><dd>2012</dd></div>
@@ -171,7 +171,7 @@ export function HomePage() {
           <div className="section-heading section-heading--dark">
             <div>
               <p className="eyebrow eyebrow--light">How we work</p>
-              <h2>From brief to delivery.</h2>
+              <h2>From brief to delivery</h2>
             </div>
           </div>
           <ol className="process-grid">
@@ -190,9 +190,9 @@ export function HomePage() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Furniture</p>
-            <h2>Selected pieces.</h2>
+            <h2>Selected pieces</h2>
           </div>
-          <p className="section-heading__copy">Dimensions, materials, colours and finishes can be adjusted.</p>
+          <p className="section-heading__copy">Dimensions, materials, colours and finishes can be adjusted</p>
         </div>
         <div className="featured-products">
           {featuredProducts.map((product) => (
@@ -205,9 +205,9 @@ export function HomePage() {
         <div className="editions-tease__number">Made to order</div>
         <div className="editions-tease__copy">
           <p className="eyebrow">Custom furniture</p>
-          <h2>Made for the project.</h2>
+          <h2>Made for the project</h2>
           <p>
-            We can adapt furniture from the collection or develop new pieces from a supplied brief.
+            We can adapt furniture from the collection or develop new pieces from a supplied brief
           </p>
           <Link className="text-link" to="/contact">
             Send a project enquiry

@@ -23,7 +23,7 @@ export function ContactPage() {
     const message = String(data.get("message") ?? "");
     const subject = encodeURIComponent(`${projectType} — ${name}`);
     const body = encodeURIComponent(`${message}\n\nName: ${name}\nEmail: ${email}`);
-    setFormNote("Your email application is opening with this enquiry ready to send.");
+    setFormNote("Your email application is opening with this enquiry ready to send");
     window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
   };
 
@@ -31,10 +31,10 @@ export function ContactPage() {
     <div className="contact-page page-enter">
       <PageIntro
         eyebrow="Contact"
-        title="Tell us about your project."
+        title="Tell us about your project"
         copy={
           <p>
-            Send the location, products, quantities and required delivery date. Include drawings or product references if available.
+            Send the location, products, quantities and required delivery date. Include drawings or product references if available
           </p>
         }
         side={<span className="page-count">UK · Portugal · International</span>}
@@ -47,6 +47,10 @@ export function ContactPage() {
             <a href={`mailto:${contact.email}`}>
               <Mail aria-hidden="true" size={19} strokeWidth={1.5} />
               {contact.email}
+            </a>
+            <a href={`mailto:${contact.salesEmail}`}>
+              <Mail aria-hidden="true" size={19} strokeWidth={1.5} />
+              {contact.salesEmail}
             </a>
             <a href={`tel:${contact.ukPhoneHref}`}>
               <Phone aria-hidden="true" size={19} strokeWidth={1.5} />
@@ -80,14 +84,14 @@ export function ContactPage() {
                 style={{ alignSelf: "end" }}
               />
             </div>
-            <figcaption>Prefer to talk? Call our UK or Portugal number.</figcaption>
+            <figcaption>Prefer to talk? Call our UK or Portugal number</figcaption>
           </figure>
         </div>
 
         <form className="enquiry-form" onSubmit={handleSubmit}>
           <div className="enquiry-form__heading">
             <p className="eyebrow">Project enquiry</p>
-            <h2>Project details.</h2>
+            <h2>Project details</h2>
           </div>
           <label>
             <span>Your name</span>
@@ -120,7 +124,7 @@ export function ContactPage() {
             Prepare email enquiry
             <ArrowRight aria-hidden="true" size={18} strokeWidth={1.5} />
           </button>
-          <p className="form-helper">This opens your usual email application. No details are stored by this preview.</p>
+          <p className="form-helper">This opens your usual email application. No details are stored by this preview</p>
           <p className="form-status" aria-live="polite">{formNote}</p>
         </form>
       </section>

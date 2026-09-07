@@ -9,7 +9,7 @@ export function Footer() {
       <div className="shell site-footer__top">
         <div className="site-footer__intro">
           <BrandLogo light />
-          <p>Contract furniture for hotels, restaurants and private interiors. Based in Portugal.</p>
+          <p>Contract furniture for hotels, restaurants and private interiors. Based in Portugal</p>
         </div>
         <div className="site-footer__column">
           <p className="footer-label">Navigate</p>
@@ -21,12 +21,13 @@ export function Footer() {
         <div className="site-footer__column">
           <p className="footer-label">Talk to us</p>
           <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a href={`mailto:${contact.salesEmail}`}>{contact.salesEmail}</a>
           <a href={`tel:${contact.ukPhoneHref}`}>{contact.ukPhone}</a>
           <a href={`tel:${contact.ptPhoneHref}`}>{contact.ptPhone}</a>
         </div>
         <div className="site-footer__column site-footer__edition">
           <p className="footer-label">Enquiries</p>
-          <p>Send the project location, products, quantities and delivery dates.</p>
+          <p>Send the project location, products, quantities and delivery dates</p>
           <Link to="/contact">
             Contact Canvas
             <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />

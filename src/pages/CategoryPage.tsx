@@ -69,7 +69,7 @@ export function CategoryPage() {
         <div className="category-hero__heading">
           <h1>{category.name}</h1>
           <p>
-            {category.count} pieces. Dimensions, materials and finishes can be changed for the project.
+            {category.count} pieces. Dimensions, materials and finishes can be changed for the project
           </p>
         </div>
       </div>
@@ -126,7 +126,7 @@ export function CategoryPage() {
         ) : (
           <div className="empty-state">
             <h2>No matching pieces</h2>
-            <p>Try another reference or view all collections.</p>
+            <p>Try another reference or view all collections</p>
             <button type="button" className="text-link" onClick={() => { setQuery(""); setCollection("all"); }}>
               Clear filters
             </button>

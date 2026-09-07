@@ -1,5 +1,6 @@
 export const contact = {
-  email: "sales@canvascontract.com",
+  email: "carlos@canvascontract.com",
+  salesEmail: "sales@canvascontract.com",
   ukPhone: "+44 (0)7773 888815",
   ukPhoneHref: "+447773888815",
   ptPhone: "+351 914 827020",

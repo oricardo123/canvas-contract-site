@@ -5,6 +5,7 @@ import { ContactBanner } from "../components/ContactBanner";
 import { ProductCard } from "../components/ProductCard";
 import { ProductImage } from "../components/ProductImage";
 import { getProduct, getProductImage, productPath } from "../data/catalog";
+import { contact } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 const furnitureDetails: Record<string, string[]> = {
@@ -64,7 +65,7 @@ export function ProductDetailPage() {
           <h1>{product.code}</h1>
           <p className="product-detail__name">{product.alt}</p>
           <p className="product-detail__lead">
-            Made to order. Dimensions, materials, finishes and upholstery can be changed for the project.
+            Made to order. Dimensions, materials, finishes and upholstery can be changed for the project
           </p>
           <dl className="spec-list">
             <div><dt>Category</dt><dd>{category.name}</dd></div>
@@ -74,19 +75,19 @@ export function ProductDetailPage() {
           </dl>
           <a
             className="button button--dark button--wide"
-            href={`mailto:sales@canvascontract.com?subject=${emailSubject}&body=${emailBody}`}
+            href={`mailto:${contact.email}?subject=${emailSubject}&body=${emailBody}`}
           >
             <Mail aria-hidden="true" size={18} strokeWidth={1.5} />
             Request specifications
           </a>
-          <p className="product-detail__note">Please include quantity, project location and target date.</p>
+          <p className="product-detail__note">Please include quantity, project location and target date</p>
         </div>
       </section>
 
       <section className="product-specification shell">
         <div>
           <p className="eyebrow">Options</p>
-          <h2>Specifications for your project.</h2>
+          <h2>Specifications for your project</h2>
         </div>
         <ul>
           {(furnitureDetails[category.slug] ?? furnitureDetails.armchairs).map((detail) => (
@@ -97,7 +98,7 @@ export function ProductDetailPage() {
           ))}
         </ul>
         <p>
-          Final dimensions, materials and performance requirements are confirmed for each project. Contact us for an exact specification.
+          Final dimensions, materials and performance requirements are confirmed for each project. Contact us for an exact specification
         </p>
       </section>
 
@@ -106,7 +107,7 @@ export function ProductDetailPage() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">In the same collection</p>
-              <h2>Related pieces.</h2>
+              <h2>Related pieces</h2>
             </div>
             <Link className="text-link" to={`/collection/${category.slug}`}>
               All {category.name.toLowerCase()}

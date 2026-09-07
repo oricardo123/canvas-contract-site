@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
+import { contact } from "../data/site";
 import { BrandLogo } from "./BrandLogo";
 
 const navigation = [
@@ -87,7 +88,7 @@ export function Header() {
               {item.label}
             </NavLink>
           ))}
-          <a className="header-enquiry" href="mailto:sales@canvascontract.com?subject=Project enquiry">
+          <a className="header-enquiry" href={`mailto:${contact.email}?subject=Project enquiry`}>
             Enquire
             <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.6} />
           </a>
@@ -113,7 +114,8 @@ export function Header() {
         </nav>
         <div className="mobile-menu__contact">
           <p>Contact</p>
-          <a href="mailto:sales@canvascontract.com">sales@canvascontract.com</a>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a href={`mailto:${contact.salesEmail}`}>{contact.salesEmail}</a>
           <a href="tel:+351914827020">+351 914 827020</a>
         </div>
       </div>

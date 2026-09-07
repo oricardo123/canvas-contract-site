@@ -91,8 +91,9 @@
     --tracking-display: 0.005em;
     --tracking-ui: 0.1em;
     --shell: 1360px;
+    --section-space: clamp(3.25rem, 5vw, 5rem);
     --gutter: clamp(1.25rem, 4vw, 4.5rem);
-    --header-height: 6rem;
+    --header-height: 8.5rem;
   }
 
   body {
@@ -254,13 +255,13 @@
   .brand-logo {
     display: inline-flex;
     flex: 0 0 auto;
-    width: 14rem;
+    width: 16.8rem;
     align-items: center;
     color: var(--ink);
   }
 
   .site-header .brand-logo {
-    width: 14rem;
+    width: 16.8rem;
   }
 
   .brand-logo__artwork {
@@ -480,7 +481,7 @@
   }
 
   .page-intro {
-    padding-block: clamp(5rem, 9vw, 9rem) clamp(4rem, 7vw, 7rem);
+    padding-block: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 3vw, 3rem);
   }
 
   .page-intro > .eyebrow {
@@ -707,18 +708,18 @@
 
   .contact-banner__inner {
     display: grid;
-    padding-block: clamp(5rem, 9vw, 9rem);
+    padding-block: clamp(3rem, 5vw, 4.5rem) 2rem;
     gap: 3rem;
     grid-template-columns: minmax(12rem, 0.55fr) 1.45fr;
   }
 
   .contact-banner h2 {
-    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 1.25rem;
     font-size: clamp(3rem, 5.8vw, 6.5rem);
   }
 
   .site-footer {
-    padding-top: clamp(4.5rem, 8vw, 8rem);
+    padding-top: 2.5rem;
     background: var(--ink);
     color: var(--white);
   }
@@ -892,7 +893,7 @@
   }
 
   .portfolio-section {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     border-top: 1px solid var(--line);
   }
 
@@ -1017,12 +1018,35 @@
     line-height: 1.45;
   }
 
+  .work-intro {
+    padding-block: 2rem;
+  }
+
+  .work-intro h1 {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: var(--weight-ui);
+  }
+
+  .collection-page > .page-intro {
+    padding-top: 1rem;
+  }
+
+  .collection-page > .page-intro h1,
+  .category-section .section-heading h2 {
+    font-size: clamp(2.75rem, 4.4vw, 4.5rem);
+  }
+
+  .collection-page > .page-intro > .eyebrow {
+    margin-bottom: 1rem;
+  }
+
   .work-showcase {
     border-top: 1px solid var(--line);
   }
 
   .work-project {
-    padding-block: clamp(5.5rem, 9vw, 9rem);
+    padding-block: var(--section-space);
     border-bottom: 1px solid var(--line);
     scroll-margin-top: calc(var(--header-height) + 1rem);
   }
@@ -1112,12 +1136,26 @@
     height: auto;
   }
 
+  .work-project__gallery--3 {
+    max-width: 75rem;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .work-project__gallery--3 figure:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .work-project__gallery--3 figure:nth-child(n + 2) {
+    grid-column: auto;
+  }
+
   .project-index {
     display: grid;
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     align-items: start;
     gap: 4rem clamp(3rem, 7vw, 8rem);
-    grid-template-columns: minmax(17rem, 0.5fr) minmax(0, 1.5fr);
+    grid-template-columns: minmax(max-content, 0.5fr) minmax(0, 1.5fr);
   }
 
   .project-index__intro {
@@ -1131,7 +1169,8 @@
 
   .project-index__intro h2 {
     margin-bottom: 1.5rem;
-    font-size: clamp(3rem, 4.5vw, 5rem);
+    font-size: clamp(2.6rem, 4.1vw, 4.5rem);
+    white-space: nowrap;
   }
 
   .project-index__intro > p:not(.eyebrow) {
@@ -1174,7 +1213,7 @@
   }
 
   .home-intro {
-    padding-block: clamp(7rem, 12vw, 12rem);
+    padding-block: var(--section-space);
   }
 
   .home-intro > .eyebrow {
@@ -1193,7 +1232,7 @@
   }
 
   .world-story {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     background: var(--ink);
     color: var(--white);
   }
@@ -1285,7 +1324,7 @@
   }
 
   .category-section {
-    padding-block: clamp(7rem, 12vw, 12rem);
+    padding-block: var(--section-space);
   }
 
   .category-grid {
@@ -1353,7 +1392,7 @@
   }
 
   .material-story {
-    padding-block: clamp(6rem, 10vw, 10rem);
+    padding-block: var(--section-space);
     background: var(--surface);
   }
 
@@ -1394,7 +1433,7 @@
   }
 
   .process-section {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     background: var(--ink);
   }
 
@@ -1434,7 +1473,7 @@
 
   .featured-section,
   .related-products {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
   }
 
   .featured-products {
@@ -1445,7 +1484,7 @@
 
   .editions-tease {
     display: grid;
-    padding-block: clamp(6rem, 10vw, 10rem);
+    padding-block: var(--section-space);
     align-items: center;
     gap: 2rem clamp(2rem, 5vw, 6rem);
     grid-template-columns: auto minmax(18rem, 0.75fr) minmax(0, 1.25fr);
@@ -1491,7 +1530,7 @@
 
   .collection-categories {
     display: grid;
-    padding-block: clamp(5rem, 8vw, 8rem) clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     gap: clamp(4rem, 7vw, 7rem) 1.5rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1530,7 +1569,7 @@
 
   .bespoke-note {
     display: grid;
-    padding-block: clamp(6rem, 10vw, 10rem);
+    padding-block: var(--section-space);
     align-items: start;
     gap: 3rem;
     grid-template-columns: 0.8fr 1.2fr;
@@ -1554,7 +1593,7 @@
   }
 
   .category-hero {
-    padding-block: clamp(4rem, 8vw, 7rem);
+    padding-block: var(--section-space);
   }
 
   .category-hero .breadcrumbs {
@@ -1583,7 +1622,7 @@
   }
 
   .catalogue {
-    padding-block: clamp(4rem, 7vw, 7rem) clamp(7rem, 11vw, 11rem);
+    padding-block: 2.5rem var(--section-space);
   }
 
   .catalogue-tools {
@@ -1673,7 +1712,7 @@
 
   .product-detail__main {
     display: grid;
-    padding-block: clamp(2rem, 5vw, 5rem) clamp(6rem, 10vw, 10rem);
+    padding-block: clamp(2rem, 5vw, 5rem) var(--section-space);
     align-items: start;
     gap: 3rem clamp(3rem, 8vw, 9rem);
     grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
@@ -1762,7 +1801,7 @@
 
   .product-specification {
     display: grid;
-    padding-block: clamp(5rem, 9vw, 9rem);
+    padding-block: var(--section-space);
     align-items: start;
     gap: 3rem clamp(2rem, 5vw, 6rem);
     grid-template-columns: 1fr 0.9fr 0.75fr;
@@ -1802,7 +1841,7 @@
 
   .studio-lead {
     display: grid;
-    padding-bottom: clamp(7rem, 11vw, 11rem);
+    padding-bottom: var(--section-space);
     align-items: center;
     gap: 3rem clamp(3rem, 8vw, 9rem);
     grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
@@ -1838,7 +1877,7 @@
 
   .origin-story {
     display: grid;
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     gap: 4rem clamp(3rem, 8vw, 9rem);
     grid-template-columns: 0.9fr 1.1fr;
     border-top: 1px solid var(--line);
@@ -1912,7 +1951,7 @@
   }
 
   .values-section {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     background: var(--surface);
   }
 
@@ -1968,7 +2007,7 @@
   }
 
   .name-story {
-    padding-block: clamp(6rem, 10vw, 10rem);
+    padding-block: var(--section-space);
     border-top: 1px solid var(--line);
   }
 
@@ -2013,7 +2052,7 @@
 
   .project-gallery {
     display: grid;
-    padding-bottom: clamp(7rem, 11vw, 11rem);
+    padding-bottom: var(--section-space);
     align-items: stretch;
     gap: 1.2rem;
     grid-template-columns: 0.8fr 1.2fr;
@@ -2073,7 +2112,7 @@
   }
 
   .project-reach {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     background: var(--ink);
     color: var(--white);
   }
@@ -2130,7 +2169,7 @@
   }
 
   .project-types {
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     border-top: 1px solid var(--line);
   }
 
@@ -2168,7 +2207,7 @@
 
   .client-list {
     display: grid;
-    padding-block: clamp(7rem, 11vw, 11rem);
+    padding-block: var(--section-space);
     align-items: start;
     gap: 4rem clamp(3rem, 9vw, 10rem);
     grid-template-columns: 0.75fr 1.25fr;
@@ -2220,7 +2259,7 @@
 
   .project-note {
     display: grid;
-    padding-block: clamp(6rem, 10vw, 10rem);
+    padding-block: var(--section-space);
     align-items: center;
     gap: 3rem clamp(3rem, 8vw, 9rem);
     grid-template-columns: 1.15fr 0.85fr;
@@ -2252,7 +2291,7 @@
 
   .contact-layout {
     display: grid;
-    padding-bottom: clamp(7rem, 11vw, 11rem);
+    padding-bottom: var(--section-space);
     align-items: start;
     gap: 4rem clamp(3rem, 8vw, 9rem);
     grid-template-columns: 0.85fr 1.15fr;
@@ -2459,7 +2498,7 @@
 
   @media (max-width: 900px) {
     :root {
-      --header-height: 7rem;
+      --header-height: 8.5rem;
     }
 
     .desktop-nav,
@@ -2469,11 +2508,11 @@
 
     .site-header__inner {
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .site-header .brand-logo {
-      width: min(14rem, calc(100vw - 7.5rem));
+      width: min(16.8rem, calc(100vw - 6.5rem));
     }
 
     .menu-toggle {
@@ -2713,7 +2752,7 @@
     .category-section,
     .featured-section,
     .related-products {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
     }
 
     .portfolio-section--archive {
@@ -2745,7 +2784,7 @@
     }
 
     .work-project {
-      padding-block: 4.75rem;
+      padding-block: 3rem;
     }
 
     .work-project__header {
@@ -2769,6 +2808,18 @@
     .work-project__gallery figure:nth-child(n + 3),
     .work-project__gallery figure:only-child {
       grid-column: 1;
+    }
+
+    .work-project__gallery--3 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .work-project__gallery--3 figure:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .work-project__gallery--3 figure:nth-child(n + 2) {
+      grid-column: auto;
     }
 
     .name-story > div {
@@ -2823,7 +2874,7 @@
     .process-section,
     .values-section,
     .project-reach {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
     }
 
     .world-story__inner {
@@ -2881,7 +2932,7 @@
     }
 
     .editions-tease {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
       grid-template-columns: 1fr;
     }
 
@@ -2895,7 +2946,8 @@
     }
 
     .contact-banner__inner {
-      padding-block: 5.5rem;
+      padding-block: 3rem 2rem;
+      gap: 1.25rem;
       grid-template-columns: 1fr;
     }
 
@@ -2904,7 +2956,7 @@
     }
 
     .page-intro {
-      padding-block: 4.5rem;
+      padding-block: 2.5rem;
     }
 
     .page-intro__grid,
@@ -2916,13 +2968,26 @@
       font-size: clamp(3.25rem, 14vw, 5rem);
     }
 
+    .work-intro h1 {
+      font-size: 0.75rem;
+    }
+
+    .collection-page > .page-intro {
+      padding-top: 1rem;
+    }
+
+    .collection-page > .page-intro h1,
+    .category-section .section-heading h2 {
+      font-size: clamp(2rem, 8.5vw, 2.75rem);
+    }
+
     .category-nav {
       width: 100%;
       padding-inline: var(--gutter);
     }
 
     .collection-categories {
-      padding-block: 4rem 6rem;
+      padding-block: 2.5rem 3rem;
       grid-template-columns: 1fr;
     }
 
@@ -2935,7 +3000,7 @@
     }
 
     .bespoke-note {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
       grid-template-columns: 1fr;
     }
 
@@ -2952,7 +3017,7 @@
     }
 
     .catalogue {
-      padding-block: 3rem 6rem;
+      padding-block: 2.5rem 3rem;
     }
 
     .catalogue-tools {
@@ -2995,7 +3060,7 @@
     }
 
     .product-detail__main {
-      padding-block: 1.5rem 5.5rem;
+      padding-block: 1.5rem 3rem;
       grid-template-columns: 1fr;
     }
 
@@ -3009,7 +3074,7 @@
     }
 
     .product-specification {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
       grid-template-columns: 1fr;
     }
 
@@ -3020,7 +3085,7 @@
     .origin-story,
     .client-list,
     .project-note {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
     }
 
     .craft-strip {
@@ -3046,7 +3111,7 @@
     }
 
     .project-types {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
     }
 
     .project-reach__heading {
@@ -3083,7 +3148,7 @@
     }
 
     .client-list {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
       gap: 3rem;
     }
 
@@ -3092,7 +3157,7 @@
     }
 
     .project-index {
-      padding-block: 5.5rem;
+      padding-block: 3rem;
       gap: 3rem;
     }
 

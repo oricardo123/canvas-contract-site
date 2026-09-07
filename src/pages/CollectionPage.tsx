@@ -18,10 +18,10 @@ export function CollectionPage() {
     <div className="collection-page">
       <PageIntro
         eyebrow="Collection"
-        title="Furniture by type."
+        title="Furniture by type"
         copy={
           <p>
-            Browse {productCount} products in eight categories. Sizes, materials, upholstery and finishes can be changed for the project.
+            Browse {productCount} products in eight categories. Sizes, materials, upholstery and finishes can be changed for the project
           </p>
         }
         side={<span className="page-count">08 categories</span>}
@@ -55,9 +55,9 @@ export function CollectionPage() {
       <section className="bespoke-note shell">
         <p className="eyebrow">Custom furniture</p>
         <div>
-          <h2>Send us the brief.</h2>
+          <h2>Send us the brief</h2>
           <p>
-            Send a drawing, reference or list of requirements. We can adapt a product or develop a new one.
+            Send a drawing, reference or list of requirements. We can adapt a product or develop a new one
           </p>
           <Link className="text-link" to="/contact">
             Ask about custom furniture
