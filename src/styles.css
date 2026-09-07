@@ -652,6 +652,7 @@
   .product-card__meta strong {
     font-size: 0.875rem;
     font-weight: var(--weight-emphasis);
+    font-variant-numeric: lining-nums;
     letter-spacing: 0.045em;
   }
 
@@ -830,6 +831,15 @@
 
   .hero h1 span {
     display: block;
+    width: max-content;
+    white-space: nowrap;
+  }
+
+  .hero h1 span + span {
+    /* Match the first line's width with the same undistorted typeface. */
+    font-size: 0.601em;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.35;
   }
 
   .hero__copy {
@@ -1703,6 +1713,7 @@
   .product-detail__info h1 {
     margin-left: -0.04em;
     font-size: clamp(4.5rem, 7vw, 7.5rem);
+    font-variant-numeric: lining-nums;
   }
 
   .product-detail__name {
