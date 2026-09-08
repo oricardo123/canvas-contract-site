@@ -5,14 +5,14 @@ export function ContactBanner() {
   return (
     <section className="contact-banner">
       <div className="shell contact-banner__inner">
-        <p className="eyebrow eyebrow--light">Project enquiry</p>
         <div>
+          <p className="eyebrow">Project enquiry</p>
           <h2>Have a project?</h2>
-          <Link className="text-link text-link--light" to="/contact">
-            Tell us what you need
-            <ArrowRight aria-hidden="true" size={18} strokeWidth={1.5} />
-          </Link>
         </div>
+        <Link className="button" to="/contact">
+          Tell us what you need
+          <ArrowRight aria-hidden="true" size={18} strokeWidth={1.5} />
+        </Link>
       </div>
     </section>
   );

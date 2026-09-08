@@ -704,31 +704,39 @@
   }
 
   .contact-banner {
-    background: var(--ink);
-    color: var(--white);
+    background: var(--paper-deep);
+    color: var(--ink);
   }
 
   .contact-banner__inner {
     display: grid;
-    padding-block: clamp(3rem, 5vw, 4.5rem) 2rem;
-    gap: 3rem;
-    grid-template-columns: minmax(12rem, 0.55fr) 1.45fr;
+    padding-block: clamp(2.5rem, 4vw, 4rem);
+    align-items: center;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .contact-banner .eyebrow {
+    margin-bottom: 1.25rem;
   }
 
   .contact-banner h2 {
-    margin-bottom: 1.25rem;
-    font-size: clamp(3rem, 5.8vw, 6.5rem);
+    font-size: clamp(3rem, 5.3vw, 5.5rem);
+  }
+
+  .contact-banner .button {
+    justify-self: start;
   }
 
   .site-footer {
-    padding-top: 2.5rem;
+    padding-top: clamp(2.5rem, 4vw, 4rem);
     background: var(--ink);
     color: var(--white);
   }
 
   .site-footer__top {
     display: grid;
-    padding-bottom: clamp(4rem, 7vw, 7rem);
+    padding-bottom: clamp(3rem, 4.5vw, 4.5rem);
     gap: 3rem clamp(2rem, 4vw, 5rem);
     grid-template-columns: 1.45fr 0.55fr 0.85fr 1fr;
   }
@@ -3026,13 +3034,12 @@
     }
 
     .contact-banner__inner {
-      padding-block: 3rem 2rem;
-      gap: 1.25rem;
+      gap: 1.5rem;
       grid-template-columns: 1fr;
     }
 
     .contact-banner h2 {
-      font-size: clamp(3rem, 14vw, 4.75rem);
+      font-size: clamp(2.75rem, 12vw, 3.5rem);
     }
 
     .page-intro {
