@@ -81,7 +81,6 @@ export function HomePage() {
       <section className="portfolio-section shell" id="selected-projects">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Work</p>
             <h2>Selected work</h2>
           </div>
           <div className="section-heading__aside">

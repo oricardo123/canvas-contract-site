@@ -1245,6 +1245,8 @@
   }
 
   .world-story figure {
+    width: 92%;
+    justify-self: center;
     aspect-ratio: 1.15;
     overflow: hidden;
     background: var(--ink-raised);
@@ -1840,10 +1842,11 @@
 
   .studio-lead {
     display: grid;
+    padding-top: clamp(1rem, 2vw, 2rem);
     padding-bottom: var(--section-space);
     align-items: center;
-    gap: 3rem clamp(3rem, 8vw, 9rem);
-    grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+    gap: 3.5rem clamp(3rem, 6vw, 6rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .studio-lead__image {
@@ -1858,20 +1861,23 @@
   }
 
   .studio-lead__copy .eyebrow {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
   .studio-lead__copy h2 {
     margin-bottom: 2rem;
-    font-size: clamp(3rem, 4.5vw, 5rem);
+    font-size: clamp(2.75rem, 3.8vw, 4rem);
+    line-height: 1.12;
+    text-wrap: balance;
   }
 
   .studio-lead__copy p:not(.eyebrow) {
     color: var(--ink-soft);
+    line-height: 1.8;
   }
 
   .studio-lead__copy p + p {
-    margin-top: 1.15rem;
+    margin-top: 1.5rem;
   }
 
   .origin-story {
