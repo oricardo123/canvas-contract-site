@@ -36,7 +36,6 @@ export function Footer() {
       </div>
       <div className="shell site-footer__bottom">
         <p>© {new Date().getFullYear()} Canvas Contract Furniture</p>
-        <p>Former company no. {contact.companyNumber}</p>
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
