@@ -153,7 +153,7 @@ export function HomePage() {
               Canvas supplies furniture for hospitality and private projects, working with designers, architects and project teams
             </p>
             <dl>
-              <div><dt>Founded</dt><dd>2012</dd></div>
+              <div><dt>Founded</dt><dd>2010</dd></div>
               <div><dt>Based</dt><dd>Portugal</dd></div>
               <div><dt>Work</dt><dd>Hospitality · Private</dd></div>
               <div><dt>Service</dt><dd>Made to order</dd></div>

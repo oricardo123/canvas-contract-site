@@ -22,13 +22,13 @@ export function StudioPage() {
     <div className="studio-page page-enter">
       <PageIntro
         eyebrow="About Canvas"
-        title="Furniture for contract and private projects"
+        title="Fine contract & private projects"
         copy={
           <p>
-            Founded by Carlos de Almeida in 2012, Canvas is based in Portugal and works with clients internationally
+            Founded by Carlos de Almeida in 2010. Canvas has now its production operation established in Portugal and continues growing its international Client base
           </p>
         }
-        side={<span className="page-count">Est. 2012</span>}
+        side={<span className="page-count">Est. 2010</span>}
       />
 
       <section className="studio-lead shell">
