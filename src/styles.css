@@ -74,6 +74,8 @@
     --surface: #faf8f3;
     --white: #ffffff;
     --ink: #533d2e;
+    --button-fill: #c8b39b;
+    --button-hover: #d4c1ab;
     --ink-soft: color-mix(in srgb, var(--ink) 80%, var(--paper));
     --ink-hover: color-mix(in srgb, var(--ink) 88%, var(--paper));
     --ink-raised: color-mix(in srgb, var(--ink) 88%, var(--paper));
@@ -93,7 +95,10 @@
     --shell: 1360px;
     --section-space: clamp(3.25rem, 5vw, 5rem);
     --gutter: clamp(1.25rem, 4vw, 4.5rem);
-    --header-height: 8.5rem;
+    --hero-display-size: clamp(3.5rem, 4.75vw, 4.5rem);
+    /* Fine furniture measures 5.532em in the current display font and tracking. */
+    --desktop-logo-width: calc(var(--hero-display-size) * 5.532);
+    --header-height: calc(var(--desktop-logo-width) * 0.37203 + 2rem);
   }
 
   body {
@@ -261,7 +266,7 @@
   }
 
   .site-header .brand-logo {
-    width: 16.8rem;
+    width: var(--desktop-logo-width);
   }
 
   .brand-logo__artwork {
@@ -318,8 +323,8 @@
     align-items: center;
     justify-content: center;
     gap: 0.55rem;
-    background: var(--ink);
-    color: var(--white);
+    background: var(--button-fill);
+    color: var(--ink);
     font-size: 0.8125rem;
     font-weight: var(--weight-ui);
     letter-spacing: var(--tracking-ui);
@@ -327,7 +332,7 @@
   }
 
   .header-enquiry:hover {
-    background: var(--ink-hover);
+    background: var(--button-hover);
   }
 
   .menu-toggle {
@@ -340,9 +345,15 @@
     padding: 0;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    border: 1px solid var(--line);
+    background: var(--button-fill);
+    border: 1px solid var(--button-fill);
+    color: var(--ink);
     cursor: pointer;
+  }
+
+  .menu-toggle:hover {
+    background: var(--button-hover);
+    border-color: var(--button-hover);
   }
 
   .mobile-menu {
@@ -419,6 +430,8 @@
     gap: 0.75rem;
     border: 1px solid transparent;
     border-radius: 0;
+    background: var(--button-fill);
+    color: var(--ink);
     cursor: pointer;
     font-size: 0.8125rem;
     font-weight: var(--weight-ui);
@@ -428,23 +441,8 @@
     transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
   }
 
-  .button--dark {
-    background: var(--ink);
-    color: var(--white);
-  }
-
-  .button--dark:hover {
-    background: var(--ink-hover);
-  }
-
-  .button--outline {
-    background: transparent;
-    border-color: var(--ink);
-  }
-
-  .button--outline:hover {
-    background: var(--ink);
-    color: var(--white);
+  .button:hover {
+    background: var(--button-hover);
   }
 
   .button--wide {
@@ -465,11 +463,15 @@
   }
 
   button.text-link {
-    padding: 0;
-    background: none;
+    padding: 0.75rem 1rem;
+    background: var(--button-fill);
     border: 0;
-    border-bottom: 1px solid currentColor;
+    color: var(--ink);
     cursor: pointer;
+  }
+
+  button.text-link:hover {
+    background: var(--button-hover);
   }
 
   .text-link:hover {
@@ -554,8 +556,8 @@
 
   .category-nav a:hover,
   .category-nav a.active {
-    background: var(--ink);
-    color: var(--white);
+    background: var(--button-fill);
+    color: var(--ink);
   }
 
   .section-heading {
@@ -620,8 +622,8 @@
     width: 3rem;
     height: 3rem;
     place-items: center;
-    background: var(--ink);
-    color: var(--white);
+    background: var(--button-fill);
+    color: var(--ink);
     opacity: 0;
     transform: translateY(100%);
     transition: opacity 240ms ease, transform 240ms ease;
@@ -795,11 +797,15 @@
 
   .site-footer__bottom button {
     min-height: 2.75rem;
-    padding: 0;
-    background: transparent;
+    padding: 0.5rem 1rem;
+    background: var(--button-fill);
     border: 0;
-    color: inherit;
+    color: var(--ink);
     cursor: pointer;
+  }
+
+  .site-footer__bottom button:hover {
+    background: var(--button-hover);
   }
 }
 
@@ -824,7 +830,7 @@
 
   .hero h1 {
     margin-left: -0.06em;
-    font-size: clamp(3.5rem, 4.75vw, 4.5rem);
+    font-size: var(--hero-display-size);
     line-height: 1.03;
   }
 
@@ -858,15 +864,6 @@
   .hero__actions :is(.button, .text-link) {
     font-size: 0.875rem;
     letter-spacing: 0.04em;
-  }
-
-  .hero__work-link {
-    background: #c8b39b;
-    color: var(--ink);
-  }
-
-  .hero__work-link:hover {
-    background: #d4c1ab;
   }
 
   .hero__media {
@@ -1349,8 +1346,8 @@
     width: 3.25rem;
     height: 3.25rem;
     place-items: center;
-    background: var(--ink);
-    color: var(--white);
+    background: var(--button-fill);
+    color: var(--ink);
     opacity: 0;
     transform: translateY(100%);
     transition: opacity 220ms ease, transform 220ms ease;
