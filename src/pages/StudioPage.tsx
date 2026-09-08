@@ -25,7 +25,7 @@ export function StudioPage() {
         title="Fine contract & private projects"
         copy={
           <p>
-            Founded by Carlos de Almeida in 2010. Canvas has now its production operation established in Portugal and continues growing its international Client base
+            Founded by Carlos Almeida in 2010. Canvas has now its production operation established in Portugal and continues growing its international Client base
           </p>
         }
         side={<span className="page-count">Est. 2010</span>}
