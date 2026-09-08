@@ -1832,12 +1832,49 @@
     padding-bottom: clamp(5rem, 8vw, 8rem);
   }
 
+  .studio-page {
+    --studio-space: clamp(3rem, 4.3vw, 4rem);
+    --studio-column-gap: clamp(3rem, 6vw, 6rem);
+  }
+
+  .studio-page > .page-intro {
+    padding-block: clamp(2rem, 3vw, 3rem) var(--studio-space);
+  }
+
+  .studio-page > .page-intro > .eyebrow {
+    margin-bottom: 1.75rem;
+  }
+
+  .studio-page .page-intro__grid {
+    gap: 1.25rem var(--studio-column-gap);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: "title copy" "title date";
+    grid-template-rows: 1fr auto;
+  }
+
+  .studio-page .page-intro h1 {
+    grid-area: title;
+    font-size: clamp(3.7rem, 5.8vw, 6.25rem);
+    text-wrap: balance;
+  }
+
+  .studio-page .page-intro__copy {
+    grid-area: copy;
+    max-width: 34rem;
+    padding-bottom: 0;
+  }
+
+  .studio-page .page-intro__side {
+    grid-area: date;
+    padding-bottom: 0;
+    justify-self: start;
+  }
+
   .studio-lead {
     display: grid;
-    padding-top: clamp(1rem, 2vw, 2rem);
-    padding-bottom: var(--section-space);
+    padding-bottom: var(--studio-space);
     align-items: center;
-    gap: 3.5rem clamp(3rem, 6vw, 6rem);
+    gap: 2.5rem var(--studio-column-gap);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1874,17 +1911,17 @@
 
   .origin-story {
     display: grid;
-    padding-block: var(--section-space);
-    gap: 4rem clamp(3rem, 8vw, 9rem);
-    grid-template-columns: 0.9fr 1.1fr;
+    padding-block: var(--studio-space);
+    gap: 3rem var(--studio-column-gap);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     border-top: 1px solid var(--line);
   }
 
   .founder-portrait {
     width: 100%;
-    max-width: 28rem;
+    max-width: 32rem;
     align-self: center;
-    justify-self: center;
+    justify-self: start;
   }
 
   .founder-portrait img {
@@ -1921,6 +1958,7 @@
   .origin-story__copy {
     color: var(--ink-soft);
     font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.75;
   }
 
   .origin-story__copy p + p {
@@ -1950,8 +1988,12 @@
   }
 
   .values-section {
-    padding-block: var(--section-space);
+    padding-block: var(--studio-space);
     background: var(--surface);
+  }
+
+  .values-section .section-heading {
+    margin-bottom: 2.5rem;
   }
 
   .values-grid {
@@ -1961,8 +2003,7 @@
   }
 
   .values-grid li {
-    min-height: 20rem;
-    padding: 1.4rem clamp(1.5rem, 3vw, 3.5rem) 2rem;
+    padding: 1.5rem clamp(1.5rem, 3vw, 3.5rem) 1.75rem;
     border-right: 1px solid var(--line);
   }
 
@@ -1972,7 +2013,7 @@
 
   .values-grid li > span {
     display: block;
-    margin-bottom: 4.5rem;
+    margin-bottom: 2rem;
     color: var(--taupe);
     font-size: 0.75rem;
     letter-spacing: 0.12em;
@@ -1989,7 +2030,7 @@
 
   .studio-focus {
     display: grid;
-    padding-block: clamp(2.5rem, 4vw, 4rem);
+    padding-block: clamp(2.5rem, 3.5vw, 3.5rem);
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem 3rem;
@@ -2669,6 +2710,32 @@
       gap: 3rem;
     }
 
+    .studio-page .page-intro__grid {
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "copy" "date";
+      grid-template-rows: auto;
+      gap: 1.5rem;
+    }
+
+    .studio-page .page-intro h1 {
+      max-width: 15ch;
+    }
+
+    .studio-page .page-intro__side {
+      display: block;
+    }
+
+    .studio-lead__image,
+    .studio-lead__copy,
+    .origin-story__profile {
+      width: 100%;
+      max-width: 38rem;
+    }
+
+    .founder-portrait {
+      max-width: 28rem;
+    }
+
     .client-list__intro,
     .project-index__intro,
     .product-detail__info {
@@ -3107,6 +3174,55 @@
 
     .craft-strip figure {
       aspect-ratio: 1.65;
+    }
+
+    .studio-page {
+      --studio-space: 2.5rem;
+    }
+
+    .studio-page .page-intro h1 {
+      font-size: clamp(3.25rem, 14vw, 5rem);
+    }
+
+    .studio-lead,
+    .origin-story {
+      gap: 2rem;
+    }
+
+    .origin-story,
+    .values-section {
+      padding-block: var(--studio-space);
+    }
+
+    .studio-lead__copy .eyebrow,
+    .origin-story__title .eyebrow {
+      margin-bottom: 1.25rem;
+    }
+
+    .studio-lead__copy h2 {
+      margin-bottom: 1.5rem;
+      font-size: clamp(2.5rem, 9vw, 3rem);
+    }
+
+    .origin-story__profile .origin-story__copy {
+      margin-top: 1.5rem;
+    }
+
+    .values-section .section-heading {
+      margin-bottom: 2rem;
+    }
+
+    .values-section .section-heading h2 {
+      font-size: clamp(2.5rem, 9vw, 3rem);
+      text-wrap: balance;
+    }
+
+    .values-grid li + li {
+      border-top: 1px solid var(--line);
+    }
+
+    .values-grid li > span {
+      margin-bottom: 1.25rem;
     }
 
     .project-gallery {
