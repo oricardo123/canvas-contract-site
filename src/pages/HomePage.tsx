@@ -50,10 +50,10 @@ export function HomePage() {
           </div>
           <div className="hero__copy">
             <p className="hero__lead">
-              Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects
+              Made-to-specification seating, tables, sofas and case goods for Hotels, Restaurants, Bars and Private Projects
             </p>
             <div className="hero__actions">
-              <Link className="button button--dark" to="/projects">
+              <Link className="button hero__work-link" to="/projects">
                 View work
                 <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
               </Link>

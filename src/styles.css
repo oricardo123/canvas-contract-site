@@ -860,6 +860,15 @@
     letter-spacing: 0.04em;
   }
 
+  .hero__work-link {
+    background: #c8b39b;
+    color: var(--ink);
+  }
+
+  .hero__work-link:hover {
+    background: #d4c1ab;
+  }
+
   .hero__media {
     grid-column: 2;
     grid-row: 1;
