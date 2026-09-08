@@ -4,7 +4,7 @@ import { CategoryImage } from "../components/CategoryImage";
 import { CategoryNav } from "../components/CategoryNav";
 import { ContactBanner } from "../components/ContactBanner";
 import { PageIntro } from "../components/PageIntro";
-import { catalog, productCount } from "../data/catalog";
+import { catalog } from "../data/catalog";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function CollectionPage() {
@@ -21,7 +21,7 @@ export function CollectionPage() {
         title="Furniture by type"
         copy={
           <p>
-            Browse {productCount} products in eight categories. Sizes, materials, upholstery and finishes can be changed for the project
+            Sizes, materials, upholstery and finishes can be changed for the project
           </p>
         }
         side={<span className="page-count">08 categories</span>}

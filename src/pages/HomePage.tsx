@@ -7,6 +7,7 @@ import { ProjectCard } from "../components/ProjectCard";
 import { catalog } from "../data/catalog";
 import { featuredProjects } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
+import seo from "../../seo.config.json";
 
 const process = [
   ["01", "Brief", "We review the drawings, quantities, use and delivery requirements"],
@@ -33,9 +34,9 @@ const heroImage = heroProject.images.find(({ src }) =>
 
 export function HomePage() {
   usePageMeta(
-    "Canvas Contract Furniture",
-    "Canvas supplies made-to-order furniture for hotels, restaurants and private interiors in Portugal and international markets.",
-    { path: "/", image: selectedWork[0].images[0].src },
+    seo.home.title,
+    seo.home.description,
+    { path: "/", image: seo.home.image, imageAlt: seo.home.imageAlt },
   );
 
   return (

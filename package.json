@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run validate:catalog && npm run sitemap && tsc -b && vite build",
+    "build": "npm run validate:catalog && npm run sitemap && tsc -b && vite build && npm run validate:seo",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "validate:catalog": "node scripts/validate-catalog.mjs",
-    "typecheck": "tsc -b --pretty false"
+    "typecheck": "tsc -b --pretty false",
+    "validate:seo": "node scripts/validate-seo.mjs"
   },
   "dependencies": {
     "lucide-react": "0.468.0",

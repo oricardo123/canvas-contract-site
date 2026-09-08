@@ -1,0 +1,12 @@
+{
+  "siteName": "Canvas",
+  "siteOrigin": "https://canvascustomfurniture.com",
+  "reviewOrigin": "https://canvas-contract-site-git-review-ca-92fd5b-oricardo123s-projects.vercel.app",
+  "reviewMode": true,
+  "home": {
+    "title": "Custom Furniture | Made to Your Specifications",
+    "description": "Custom furniture made to your specifications for hotels, restaurants, bars and private projects. Based in Portugal, working internationally.",
+    "image": "/assets/projects/st-regis-hotel-venice-02-public-area.jpg",
+    "imageAlt": "Public lounge interior at The St. Regis Venice, a Canvas furniture project"
+  }
+}

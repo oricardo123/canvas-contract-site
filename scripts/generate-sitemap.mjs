@@ -5,7 +5,9 @@ import path from "node:path";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const catalogPath = path.join(projectRoot, "src/data/catalog.generated.json");
 const outputPath = path.join(projectRoot, "public/sitemap.xml");
-const origin = "https://www.canvascontract.com";
+const { siteOrigin: origin } = JSON.parse(
+  await readFile(path.join(projectRoot, "seo.config.json"), "utf8"),
+);
 
 const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const routes = ["/", "/collection", "/studio", "/projects", "/contact"];

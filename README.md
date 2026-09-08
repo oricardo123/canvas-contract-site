@@ -35,7 +35,7 @@ Every production build also verifies the eight category totals, all 984 unique p
 
 The project includes SPA route fallbacks for Netlify-compatible hosts (`public/_redirects`) and Vercel (`vercel.json`). For another host, configure all unknown paths to serve `index.html` so direct visits to catalogue and legacy routes work correctly.
 
-Canonical URLs and the sitemap currently use `https://www.canvascontract.com`. If the finished site will use another production domain, update `SITE_ORIGIN` in `src/hooks/usePageMeta.ts` and `origin` in `scripts/generate-sitemap.mjs` before launch. A server-rendered or pre-rendered deployment is recommended if HTTP-level 404 responses and metadata without JavaScript are important to the final SEO strategy.
+The confirmed launch origin is `https://canvascustomfurniture.com`, with brand name **Canvas**. `seo.config.json` supplies runtime metadata and sitemap settings. The homepage also includes matching initial HTML metadata and WebSite site-name markup. `npm run build` validates the built metadata, sitemap and indexing controls. Review deployments remain excluded from indexing; follow [SEO launch preparation](docs/SEO-LAUNCH.md) before activating the domain and enabling search indexing.
 
 ## Contact form
 
