@@ -57,7 +57,7 @@ export function StudioPage() {
         <figure className="founder-portrait">
           <img
             src="/assets/editorial/carlos-de-almeida-portrait-2017.jpg"
-            alt="Carlos de Almeida, founder of Canvas"
+            alt="Carlos Carvalho De Almeida, founder of Canvas"
             width="1602"
             height="1602"
             loading="lazy"
@@ -67,14 +67,17 @@ export function StudioPage() {
         <div className="origin-story__profile">
           <div className="origin-story__title">
             <p className="eyebrow">Founder</p>
-            <h2>Carlos de Almeida</h2>
+            <h2>Carlos Carvalho De Almeida</h2>
           </div>
           <div className="origin-story__copy">
             <p>
-              Carlos de Almeida's background includes cabinetmaking training, furniture retail, production, export and manufacture in Portugal
+              The love for materials, furniture design, the experience with his family's shoe making trade, have provided a natural understanding for materials, textures and the way they work together
             </p>
             <p>
-              After working with designers, architects and manufacturers across international markets, he founded Canvas to supply made-to-order furniture for hospitality and private projects
+              Cabinet Technical training, Marketing Management, commercial experience along with his love &amp; passion for design, in Sydney Australia, are the foundations for a long enriching and professional experience journey, from Australia to Europe, America, The Middle East &amp; Asia
+            </p>
+            <p>
+              Canvas has been, over the time, contracted to develop and produce pieces of furniture for award winning projects for credible and renowned Designers, Architects and Hoteliers
             </p>
           </div>
         </div>
