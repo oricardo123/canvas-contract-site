@@ -65,9 +65,10 @@ export function ContactPage() {
             <div>
               <p className="contact-label"><MapPin aria-hidden="true" size={16} />Trading address</p>
               <address>{contact.tradingAddress.map((line) => <span key={line}>{line}</span>)}</address>
+              <p>VAT Number: {contact.vatNumber}</p>
             </div>
             <div>
-              <p className="contact-label"><MapPin aria-hidden="true" size={16} />Registered office</p>
+              <p className="contact-label"><MapPin aria-hidden="true" size={16} />Original Registered Office</p>
               <address>{contact.registeredOffice.map((line) => <span key={line}>{line}</span>)}</address>
               <p>Company no. {contact.companyNumber}</p>
             </div>

@@ -5,7 +5,8 @@ export const contact = {
   ukPhoneHref: "+447773888815",
   ptPhone: "+351 914 827020",
   ptPhoneHref: "+351914827020",
-  tradingAddress: ["303 Raleigh House", "Dolphin Square", "London", "SW1V 3NP"],
+  tradingAddress: ["Rua do Comercio 106", "Seroa, 4595-590", "Portugal"],
+  vatNumber: "515968366",
   registeredOffice: ["114–116 Curtain Road", "London", "EC2A 3AH"],
   companyNumber: "7922364",
 };
