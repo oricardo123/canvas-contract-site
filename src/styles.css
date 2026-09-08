@@ -812,16 +812,14 @@
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
   }
 
-  .hero__heading {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: end;
+  .hero__content {
+    display: grid;
+    gap: 1.75rem;
     min-width: 0;
   }
 
-  .hero__heading > .eyebrow {
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
+  .hero__heading {
+    min-width: 0;
   }
 
   .hero h1 {
@@ -841,12 +839,6 @@
     font-size: 0.601em;
     letter-spacing: var(--tracking-display);
     line-height: 1.35;
-  }
-
-  .hero__copy {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: start;
   }
 
   .hero__lead {
@@ -870,7 +862,7 @@
 
   .hero__media {
     grid-column: 2;
-    grid-row: 1 / span 2;
+    grid-row: 1;
     min-width: 0;
   }
 
@@ -970,13 +962,7 @@
     margin-bottom: 1.4rem;
     align-items: baseline;
     gap: 0.8rem;
-    grid-template-columns: 1.8rem minmax(0, 1fr) auto;
-  }
-
-  .portfolio-card__title > span {
-    color: var(--taupe);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   .portfolio-card__title h3 {
@@ -2528,11 +2514,21 @@
       grid-template-columns: 1fr;
     }
 
-    .hero__heading,
-    .hero__media,
+    .hero__content {
+      display: contents;
+    }
+
+    .hero__heading {
+      grid-row: 1;
+    }
+
+    .hero__media {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
     .hero__copy {
-      grid-column: auto;
-      grid-row: auto;
+      grid-row: 3;
     }
 
     .hero__media > img {

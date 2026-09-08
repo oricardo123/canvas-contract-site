@@ -4,13 +4,11 @@ import type { WorkProject } from "../data/site";
 
 interface ProjectCardProps {
   project: WorkProject;
-  index: number;
   variant?: WorkProject["variant"];
 }
 
-export function ProjectCard({ project, index, variant = project.variant }: ProjectCardProps) {
+export function ProjectCard({ project, variant = project.variant }: ProjectCardProps) {
   const image = project.images[0];
-  const number = String(index + 1).padStart(2, "0");
 
   return (
     <article className={`portfolio-card portfolio-card--${variant}`}>
@@ -31,7 +29,6 @@ export function ProjectCard({ project, index, variant = project.variant }: Proje
         </figure>
         <div className="portfolio-card__caption">
           <div className="portfolio-card__title">
-            <span aria-hidden="true">{number}</span>
             <h3>{project.name}</h3>
             <ArrowRight aria-hidden="true" size={18} strokeWidth={1.5} />
           </div>

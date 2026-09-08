@@ -41,12 +41,28 @@ export function HomePage() {
   return (
     <div className="home-page page-enter">
       <section className="hero shell">
-        <div className="hero__heading">
-          <p className="eyebrow">Custom furniture</p>
-          <h1>
-            <span>Fine furniture</span>{" "}
-            <span>for customized projects</span>
-          </h1>
+        <div className="hero__content">
+          <div className="hero__heading">
+            <h1>
+              <span>Fine furniture</span>{" "}
+              <span>for customized projects</span>
+            </h1>
+          </div>
+          <div className="hero__copy">
+            <p className="hero__lead">
+              Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects
+            </p>
+            <div className="hero__actions">
+              <Link className="button button--dark" to="/projects">
+                View work
+                <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
+              </Link>
+              <Link className="text-link" to="/collection">
+                Browse the collection
+                <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.5} />
+              </Link>
+            </div>
+          </div>
         </div>
         <figure className="hero__media">
           <img
@@ -61,21 +77,6 @@ export function HomePage() {
             <span>{heroProject.name}</span>
           </figcaption>
         </figure>
-        <div className="hero__copy">
-          <p className="hero__lead">
-            Made-to-order seating, tables, sofas and case goods for hotels, restaurants and private projects
-          </p>
-          <div className="hero__actions">
-            <Link className="button button--dark" to="/projects">
-              View work
-              <ArrowRight aria-hidden="true" size={17} strokeWidth={1.5} />
-            </Link>
-            <Link className="text-link" to="/collection">
-              Browse the collection
-              <ArrowUpRight aria-hidden="true" size={17} strokeWidth={1.5} />
-            </Link>
-          </div>
-        </div>
       </section>
 
       <section className="portfolio-section shell" id="selected-projects">
@@ -91,8 +92,8 @@ export function HomePage() {
           </div>
         </div>
         <div className="portfolio-grid portfolio-grid--preview">
-          {selectedWork.map((project, index) => (
-            <ProjectCard project={project} index={index} key={project.slug} />
+          {selectedWork.map((project) => (
+            <ProjectCard project={project} key={project.slug} />
           ))}
         </div>
       </section>
