@@ -29,7 +29,7 @@ export function CategoryPage() {
   const shownProducts = category.products.slice(0, visible);
 
   return (
-    <div className="category-page page-enter">
+    <div className="category-page">
       <div className="category-hero shell">
         <h1>{categoryLabels[category.slug] ?? category.name}</h1>
       </div>
