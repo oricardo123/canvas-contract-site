@@ -1032,6 +1032,10 @@
     font-weight: var(--weight-ui);
   }
 
+  .collection-page {
+    --collection-copy-width: 28.5rem;
+  }
+
   .collection-page > .page-intro {
     padding-block: 0.5rem 0.75rem;
   }
@@ -1042,7 +1046,7 @@
 
   .collection-page .page-intro__grid {
     gap: 0.25rem 3rem;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 28.5rem);
+    grid-template-columns: minmax(0, 1fr) var(--collection-copy-width);
   }
 
   .collection-page .page-intro h1 {
@@ -2485,6 +2489,13 @@
 
 @layer responsive {
   @media (min-width: 901px) {
+    .collection-page > .category-nav a {
+      flex: 0 0 calc((100% - var(--collection-copy-width)) / 9);
+      min-width: 0;
+      padding-inline: 0;
+      justify-content: center;
+    }
+
     .collection-category__image {
       /* Keep both rows in the opening desktop view while preserving photo proportions. */
       height: clamp(6.5rem, calc((100svh - var(--header-height) - 17rem) / 2), 16rem);
@@ -2500,8 +2511,8 @@
   }
 
   @media (max-width: 1120px) {
-    .collection-page .page-intro__grid {
-      grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.75fr);
+    .collection-page {
+      --collection-copy-width: max(17rem, calc((100% - 3rem) * 3 / 7));
     }
 
     .header-enquiry {
