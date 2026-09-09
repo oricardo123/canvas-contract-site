@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { catalog } from "../data/catalog";
 
-const navigationLabels: Record<string, string> = {
+export const categoryLabels: Record<string, string> = {
   armchairs: "Arm",
   "side-chairs": "Side",
   "lounge-chairs": "Lounge",
@@ -19,7 +19,7 @@ export function CategoryNav() {
         All
       </NavLink>
       {catalog.map((category) => {
-        const label = navigationLabels[category.slug] ?? category.name;
+        const label = categoryLabels[category.slug] ?? category.name;
         return (
           <NavLink
             key={category.slug}

@@ -77,7 +77,7 @@ export function Header() {
         >
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
-        <BrandLogo />
+        <BrandLogo compact />
         <div className="desktop-nav">
           {navigation.map((item) => (
             <NavLink

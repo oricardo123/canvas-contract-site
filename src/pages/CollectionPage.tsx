@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CategoryImage } from "../components/CategoryImage";
-import { CategoryNav } from "../components/CategoryNav";
+import { CategoryNav, categoryLabels } from "../components/CategoryNav";
 import { ContactBanner } from "../components/ContactBanner";
 import { PageIntro } from "../components/PageIntro";
 import { catalog } from "../data/catalog";
@@ -17,7 +17,7 @@ export function CollectionPage() {
   return (
     <div className="collection-page">
       <PageIntro
-        title="Pieces by Function"
+        title="Pieces by Form"
         copy={
           <p>
             Dimensions, materials, upholstery and finishes made to specification
@@ -28,23 +28,21 @@ export function CollectionPage() {
       <CategoryNav />
 
       <section className="collection-categories shell" aria-label="Product categories">
-        {catalog.map((category, index) => (
+        {catalog.map((category) => (
           <article className="collection-category" key={category.slug}>
-            <Link to={`/collection/${category.slug}`}>
+            <Link to={`/collection/${category.slug}`} aria-label={`${categoryLabels[category.slug] ?? category.name} — ${category.name}`}>
               <span className="collection-category__image">
                 <CategoryImage
                   src={category.image}
                   alt={`${category.name} from the Canvas furniture collection`}
-                  loading={index < 4 ? "eager" : "lazy"}
+                  loading="eager"
                 />
                 <span className="collection-category__action" aria-hidden="true">
                   <ArrowUpRight size={22} strokeWidth={1.4} />
                 </span>
               </span>
               <span className="collection-category__meta">
-                <span className="collection-category__number">{String(index + 1).padStart(2, "0")}</span>
-                <strong>{category.name}</strong>
-                <span>{category.count} pieces</span>
+                <strong>{categoryLabels[category.slug] ?? category.name}</strong>
               </span>
             </Link>
           </article>

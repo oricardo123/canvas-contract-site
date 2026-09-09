@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 interface BrandLogoProps {
   light?: boolean;
+  compact?: boolean;
 }
 
 // 12c presentation trial: space the original 12b descriptor glyphs to the
@@ -13,22 +14,23 @@ const descriptorGlyphs = [
   [804, 807], [840, 853], [885, 903], [937, 947], [976, 996],
 ];
 
-export function BrandLogo({ light = false }: BrandLogoProps) {
+export function BrandLogo({ light = false, compact = false }: BrandLogoProps) {
   const inkFilterId = `canvas-logo-ink-${useId().replace(/:/g, "")}`;
   const artworkId = `${inkFilterId}-artwork`;
   const upperClipId = `${inkFilterId}-upper`;
+  const wordClipId = `${inkFilterId}-word`;
 
   return (
     <Link
-      className={`brand-logo${light ? " brand-logo--light" : ""}`}
+      className={`brand-logo${light ? " brand-logo--light" : ""}${compact ? " brand-logo--compact" : ""}`}
       to="/"
       aria-label="Canvas — Home"
     >
       <svg
         className="brand-logo__artwork"
-        viewBox="82 476 1094 407"
+        viewBox={`82 476 1094 ${compact ? 319 : 407}`}
         width="1094"
-        height="407"
+        height={compact ? 319 : 407}
         aria-hidden="true"
         focusable="false"
       >
@@ -53,8 +55,13 @@ export function BrandLogo({ light = false }: BrandLogoProps) {
             filter={`url(#${inkFilterId})`}
           />
           <clipPath id={upperClipId}>
-            <rect x="82" y="476" width="1094" height="344" />
+            <rect x="82" y="476" width="1094" height={compact ? 194 : 344} />
           </clipPath>
+          {compact && (
+            <clipPath id={wordClipId}>
+              <rect x="82" y="670" width="1094" height="150" />
+            </clipPath>
+          )}
           {descriptorGlyphs.map(([left, right], index) => (
             <clipPath id={`${inkFilterId}-glyph-${index}`} key={index}>
               <rect x={left - 2} y="820" width={right - left + 5} height="63" />
@@ -62,8 +69,13 @@ export function BrandLogo({ light = false }: BrandLogoProps) {
           ))}
         </defs>
         <use href={`#${artworkId}`} clipPath={`url(#${upperClipId})`} />
+        {compact && (
+          <g transform="translate(0 -56)">
+            <use href={`#${artworkId}`} clipPath={`url(#${wordClipId})`} />
+          </g>
+        )}
         {descriptorGlyphs.map((_, index) => (
-          <g transform={`translate(${-82 + (169 * index) / 14} 0)`} key={index}>
+          <g transform={`translate(${-82 + (169 * index) / 14} ${compact ? -88 : 0})`} key={index}>
             <use href={`#${artworkId}`} clipPath={`url(#${inkFilterId}-glyph-${index})`} />
           </g>
         ))}
