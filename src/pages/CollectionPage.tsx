@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CategoryImage } from "../components/CategoryImage";
 import { CategoryNav, categoryLabels } from "../components/CategoryNav";
@@ -23,7 +23,6 @@ export function CollectionPage() {
             Dimensions, materials, upholstery and finishes made to specification
           </p>
         }
-        side={<span className="page-count">08 categories</span>}
       />
       <CategoryNav />
 
@@ -49,19 +48,6 @@ export function CollectionPage() {
         ))}
       </section>
 
-      <section className="bespoke-note shell">
-        <p className="eyebrow">Custom furniture</p>
-        <div>
-          <h2>Send us the brief</h2>
-          <p>
-            Send a drawing, reference or list of requirements. We can adapt a product or develop a new one
-          </p>
-          <Link className="text-link" to="/contact">
-            Ask about custom furniture
-            <ArrowRight aria-hidden="true" size={18} strokeWidth={1.5} />
-          </Link>
-        </div>
-      </section>
       <ContactBanner />
     </div>
   );
