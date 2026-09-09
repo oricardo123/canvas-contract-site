@@ -623,8 +623,8 @@
     right: 0;
     bottom: 0;
     display: grid;
-    width: 3rem;
-    height: 3rem;
+    width: var(--card-action-size, 3rem);
+    height: var(--card-action-size, 3rem);
     place-items: center;
     background: var(--button-fill);
     color: var(--ink);
@@ -1035,6 +1035,13 @@
   .collection-page,
   .category-page {
     --collection-copy-width: 28.5rem;
+    --card-action-size: 2.625rem;
+  }
+
+  .collection-page .collection-category__action svg,
+  .category-page .product-card__action svg {
+    width: 1.125rem;
+    height: 1.125rem;
   }
 
   .collection-page > .page-intro {
@@ -1372,8 +1379,8 @@
     right: 0;
     bottom: 0;
     display: grid;
-    width: 3.25rem;
-    height: 3.25rem;
+    width: var(--card-action-size, 3.25rem);
+    height: var(--card-action-size, 3.25rem);
     place-items: center;
     background: var(--button-fill);
     color: var(--ink);
@@ -3151,8 +3158,8 @@
     .product-card__action,
     .category-card__arrow,
     .collection-category__action {
-      width: 2.7rem;
-      height: 2.7rem;
+      width: var(--card-action-size, 2.7rem);
+      height: var(--card-action-size, 2.7rem);
       opacity: 1;
       transform: translateY(0);
     }
