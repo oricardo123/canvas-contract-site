@@ -1037,7 +1037,7 @@
   }
 
   .collection-page > .page-intro {
-    padding-block: 0.5rem 0.75rem;
+    padding-block: 1.5rem;
   }
 
   .category-section .section-heading h2 {
@@ -1551,7 +1551,7 @@
     /* Match the horizontal image gap to the caption plus the gap between rows. */
     --collection-image-gap: calc(var(--collection-caption-size) * 1.2 + 0.25rem + var(--collection-row-gap));
     display: grid;
-    padding-block: 1rem 2rem;
+    padding-block: 1.5rem;
     gap: var(--collection-row-gap) var(--collection-image-gap);
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1607,7 +1607,7 @@
   }
 
   .category-hero {
-    padding-block: var(--section-space);
+    padding-block: 1.5rem;
   }
 
   .category-hero .breadcrumbs {
@@ -1626,7 +1626,7 @@
   }
 
   .category-hero h1 {
-    font-size: clamp(4.5rem, 8vw, 8.7rem);
+    font-size: clamp(2rem, 3.3vw, 3.25rem);
   }
 
   .category-hero__heading p {
@@ -1636,7 +1636,7 @@
   }
 
   .catalogue {
-    padding-block: 2.5rem var(--section-space);
+    padding-block: 1.5rem var(--section-space);
   }
 
   .catalogue-tools {
@@ -3066,7 +3066,11 @@
     }
 
     .collection-page > .page-intro {
-      padding-block: 0.75rem 1rem;
+      padding-block: 1.5rem;
+    }
+
+    .collection-page .page-intro__grid {
+      row-gap: 1rem;
     }
 
     .collection-page > .page-intro h1,
@@ -3080,7 +3084,7 @@
     }
 
     .collection-categories {
-      padding-block: 1rem 3rem;
+      padding-block: 1.5rem;
       grid-template-columns: 1fr;
     }
 
@@ -3094,7 +3098,7 @@
     }
 
     .category-hero {
-      padding-block: 3.5rem;
+      padding-block: 1.5rem;
     }
 
     .category-hero .breadcrumbs {
@@ -3102,11 +3106,11 @@
     }
 
     .category-hero h1 {
-      font-size: clamp(4rem, 18vw, 6.2rem);
+      font-size: clamp(2rem, 8.5vw, 2.75rem);
     }
 
     .catalogue {
-      padding-block: 2.5rem 3rem;
+      padding-block: 1.5rem 3rem;
     }
 
     .catalogue-tools {
