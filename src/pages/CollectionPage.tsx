@@ -17,11 +17,10 @@ export function CollectionPage() {
   return (
     <div className="collection-page">
       <PageIntro
-        eyebrow="Collection"
-        title="Furniture by type"
+        title="Pieces by Function"
         copy={
           <p>
-            Sizes, materials, upholstery and finishes can be changed for the project
+            Dimensions, materials, upholstery and finishes made to specification
           </p>
         }
         side={<span className="page-count">08 categories</span>}
@@ -36,7 +35,7 @@ export function CollectionPage() {
                 <CategoryImage
                   src={category.image}
                   alt={`${category.name} from the Canvas furniture collection`}
-                  loading={index < 2 ? "eager" : "lazy"}
+                  loading={index < 4 ? "eager" : "lazy"}
                 />
                 <span className="collection-category__action" aria-hidden="true">
                   <ArrowUpRight size={22} strokeWidth={1.4} />

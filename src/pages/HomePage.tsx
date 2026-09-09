@@ -203,7 +203,6 @@ export function HomePage() {
       </section>
 
       <section className="editions-tease shell">
-        <div className="editions-tease__number">Made to order</div>
         <div className="editions-tease__copy">
           <p className="eyebrow">Custom furniture</p>
           <h2>Made for the project</h2>
