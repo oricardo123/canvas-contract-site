@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { ContactBanner } from "../components/ContactBanner";
 import { WorkProjectShowcase } from "../components/WorkProjectShowcase";
 import { featuredProjects, projectArchive } from "../data/site";
@@ -36,7 +37,20 @@ export function ProjectsPage() {
               <span className="project-index__number" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <strong>{project.name}</strong>
+              <strong>
+                {project.website ? (
+                  <a
+                    className="project-index__venue-link"
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${project.name} ${project.websiteLabel ?? "official website"} (opens in a new tab)`}
+                  >
+                    <span>{project.name}</span>
+                    <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.5} />
+                  </a>
+                ) : project.name}
+              </strong>
               <span>{project.location}</span>
               <span>{project.scope}</span>
             </li>

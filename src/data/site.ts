@@ -151,35 +151,43 @@ export const featuredProjects: WorkProject[] = [
   },
 ];
 
-export const projectArchive = [
-  { name: "The Norman Hotel", location: "Tel Aviv", scope: "Bedrooms, restaurants and public areas" },
-  { name: "Sir Adam", location: "Amsterdam", scope: "Restaurant" },
-  { name: "The Arts Club Hotel", location: "London", scope: "Bedrooms, restaurants and public areas" },
-  { name: "St. Regis Hotel", location: "Venice", scope: "Deluxe suites, restaurant and public areas" },
-  { name: "Hotel Bristol", location: "Warsaw", scope: "Restaurants and public areas" },
-  { name: "The Duchess", location: "Amsterdam", scope: "Restaurant and bar" },
-  { name: "Villa Belrose", location: "St Tropez", scope: "Restaurant" },
-  { name: "Bluebird", location: "London", scope: "Restaurant and bar" },
-  { name: "Maison Bréguet", location: "Paris", scope: "Bedrooms, restaurants and public areas" },
-  { name: "Le Bilboquet", location: "Dallas", scope: "Restaurant" },
-  { name: "Sartoria", location: "London", scope: "Restaurant and bar" },
-  { name: "Cascais Miragem", location: "Cascais", scope: "Bedrooms, restaurants and public areas" },
-  { name: "Al Dana Resort", location: "Bahrain", scope: "Bedrooms" },
-  { name: "La Petite Maison", location: "Hong Kong", scope: "Restaurant and bar" },
-  { name: "La Petite Maison", location: "Miami", scope: "Restaurant and bar" },
-  { name: "La Petite Maison", location: "London", scope: "Restaurant and bar" },
-  { name: "La Petite Maison", location: "Dubai", scope: "Restaurant and bar" },
-  { name: "Millennium Gloucester Hotel", location: "Kensington", scope: "Restaurant and bar" },
-  { name: "Tamarind", location: "Mayfair", scope: "Restaurant and bar" },
-  { name: "Coq d’Argent", location: "London", scope: "Restaurant and bar" },
+export interface ProjectRecord {
+  name: string;
+  location: string;
+  scope: string;
+  website?: string;
+  websiteLabel?: string;
+}
+
+export const projectArchive: ProjectRecord[] = [
+  { name: "The Norman Hotel", location: "Tel Aviv", scope: "Bedrooms, restaurants and public areas", website: "https://www.thenorman.com/" },
+  { name: "Sir Adam", location: "Amsterdam", scope: "Restaurant", website: "https://www.sirhotels.com/en/adam/" },
+  { name: "The Arts Club Hotel", location: "London", scope: "Bedrooms, restaurants and public areas", website: "https://www.theartsclub.co.uk/hotel/" },
+  { name: "St. Regis Hotel", location: "Venice", scope: "Deluxe suites, restaurant and public areas", website: "https://www.marriott.com/en-us/hotels/vcexr-the-st-regis-venice/overview/" },
+  { name: "Hotel Bristol", location: "Warsaw", scope: "Restaurants and public areas", website: "https://www.marriott.com/en-us/hotels/wawlc-hotel-bristol-a-luxury-collection-hotel-warsaw/overview/" },
+  { name: "The Duchess", location: "Amsterdam", scope: "Restaurant and bar", website: "https://the-duchess.com/" },
+  { name: "Villa Belrose", location: "St Tropez", scope: "Restaurant", website: "https://www.althoffcollection.com/en/althoff-villa-belrose" },
+  { name: "Bluebird", location: "London", scope: "Restaurant and bar", website: "https://bluebird-restaurant.co.uk/" },
+  { name: "Maison Bréguet", location: "Paris", scope: "Bedrooms, restaurants and public areas", website: "https://en.maisonbreguet.com/" },
+  { name: "Le Bilboquet", location: "Dallas", scope: "Restaurant", website: "https://lebilboquetdallas.com/" },
+  { name: "Sartoria", location: "London", scope: "Restaurant and bar", website: "https://sartoria-restaurant.co.uk/" },
+  { name: "Cascais Miragem", location: "Cascais", scope: "Bedrooms, restaurants and public areas", website: "https://www.cascaismirage.com/" },
+  { name: "Al Dana Resort", location: "Bahrain", scope: "Bedrooms", website: "https://all.accor.com/hotel/3600/index.en.shtml" },
+  { name: "La Petite Maison", location: "Hong Kong", scope: "Restaurant and bar", website: "https://lpmrestaurants.com/hongkong/" },
+  { name: "La Petite Maison", location: "Miami", scope: "Restaurant and bar", website: "https://lpmrestaurants.com/miami/" },
+  { name: "La Petite Maison", location: "London", scope: "Restaurant and bar", website: "https://lpmrestaurants.com/london/" },
+  { name: "La Petite Maison", location: "Dubai", scope: "Restaurant and bar", website: "https://lpmrestaurants.com/dubai/" },
+  { name: "Millennium Gloucester Hotel", location: "Kensington", scope: "Restaurant and bar", website: "https://www.millenniumhotels.com/en/destinations/europe/united-kingdom/london/millennium-gloucester-hotel-london-kensington/" },
+  { name: "Tamarind", location: "Mayfair", scope: "Restaurant and bar", website: "https://www.tamarindrestaurant.com/" },
+  { name: "Coq d’Argent", location: "London", scope: "Restaurant and bar", website: "https://coqdargent.co.uk/" },
   { name: "Launceston Place", location: "Kensington", scope: "Restaurant and bar" },
-  { name: "Orrery", location: "Marylebone", scope: "Restaurant and bar" },
+  { name: "Orrery", location: "Marylebone", scope: "Restaurant and bar", website: "https://orrery-restaurant.co.uk/by-pierre-minotti/" },
   { name: "Radici", location: "Islington", scope: "Restaurant and bar" },
-  { name: "Tamarind Kitchen", location: "London", scope: "Restaurant and bar" },
-  { name: "Bluebird Café BBC", location: "Shepherd’s Bush", scope: "Café, restaurant and bar" },
-  { name: "Coppa Club", location: "Cobham", scope: "Restaurant and bar" },
-  { name: "Herbert Samuel", location: "Jerusalem", scope: "Restaurant and bar" },
-  { name: "Bar des Prés", location: "London", scope: "Restaurant and bar" },
-  { name: "Four Seasons", location: "Park Lane", scope: "Restaurant and bar" },
-  { name: "Harleyford Manor", location: "Marlow", scope: "Bedrooms, lounge, dining and leisure" },
+  { name: "Tamarind Kitchen", location: "London", scope: "Restaurant and bar", website: "https://tamarindkitchen.co.uk/" },
+  { name: "Bluebird Café BBC", location: "Shepherd’s Bush", scope: "Café, restaurant and bar", website: "https://televisioncentre.com/news/bluebird-flies-into-white-city/", websiteLabel: "venue information" },
+  { name: "Coppa Club", location: "Cobham", scope: "Restaurant and bar", website: "https://www.coppaclub.co.uk/cobham" },
+  { name: "Herbert Samuel", location: "Jerusalem", scope: "Restaurant and bar", website: "https://herbertsamuel.com/en/herbert-samuel-jerusalem-hotel/" },
+  { name: "Bar des Prés", location: "London", scope: "Restaurant and bar", website: "https://www.bardespres.com/london-restaurant/" },
+  { name: "Four Seasons", location: "Park Lane", scope: "Restaurant and bar", website: "https://www.fourseasons.com/london/" },
+  { name: "Harleyford Manor", location: "Marlow", scope: "Bedrooms, lounge, dining and leisure", website: "https://harleyford.co.uk/" },
 ];

@@ -1215,6 +1215,31 @@
     overflow-wrap: anywhere;
   }
 
+  .project-index__venue-link {
+    display: inline-flex;
+    max-width: 100%;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.35em;
+  }
+
+  .project-index__venue-link span {
+    min-width: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--line);
+  }
+
+  .project-index__venue-link svg {
+    flex: 0 0 auto;
+  }
+
+  .project-index__venue-link:hover span,
+  .project-index__venue-link:focus-visible span {
+    text-decoration-color: currentColor;
+  }
+
   .project-index li > span:not(.project-index__number) {
     color: var(--ink-soft);
     font-size: 0.78rem;
