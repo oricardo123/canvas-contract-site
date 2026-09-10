@@ -1022,16 +1022,6 @@
     line-height: 1.45;
   }
 
-  .work-intro {
-    padding-block: 2rem;
-  }
-
-  .work-intro h1 {
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    font-weight: var(--weight-ui);
-  }
-
   .collection-page,
   .category-page {
     --collection-copy-width: 28.5rem;
@@ -1069,29 +1059,22 @@
     padding-bottom: 0;
   }
 
-  .work-showcase {
-    border-top: 1px solid var(--line);
-  }
-
   .work-project {
     padding-block: var(--section-space);
     border-bottom: 1px solid var(--line);
     scroll-margin-top: calc(var(--header-height) + 1rem);
   }
 
-  .work-project__header {
-    display: grid;
-    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
-    align-items: start;
-    gap: 1.5rem clamp(2rem, 5vw, 6rem);
-    grid-template-columns: 2rem minmax(16rem, 0.8fr) minmax(22rem, 1.2fr);
+  .work-project:first-child {
+    padding-top: 2rem;
   }
 
-  .work-project__number {
-    padding-top: 0.7rem;
-    color: var(--taupe);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
+  .work-project__header {
+    display: grid;
+    margin-bottom: 1.5rem;
+    align-items: start;
+    gap: 1.5rem clamp(2rem, 5vw, 6rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 
   .work-project__header h2 {
@@ -1165,8 +1148,6 @@
   }
 
   .work-project__gallery--3 {
-    max-width: 75rem;
-    margin-inline: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2545,11 +2526,12 @@
     }
 
     .work-project__header {
-      grid-template-columns: 2rem minmax(0, 1fr);
+      grid-template-columns: 1fr;
     }
 
     .work-project__meta {
-      grid-column: 2;
+      grid-column: 1;
+      padding-top: 0;
     }
 
     .world-story figure {
@@ -2787,8 +2769,12 @@
       padding-block: 3rem;
     }
 
+    .work-project:first-child {
+      padding-top: 2rem;
+    }
+
     .work-project__header {
-      grid-template-columns: 1.7rem minmax(0, 1fr);
+      grid-template-columns: 1fr;
     }
 
     .work-project__meta {
@@ -2965,10 +2951,6 @@
 
     .page-intro h1 {
       font-size: clamp(3.25rem, 14vw, 5rem);
-    }
-
-    .work-intro h1 {
-      font-size: 0.75rem;
     }
 
     .collection-page > .page-intro {

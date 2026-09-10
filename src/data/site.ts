@@ -31,16 +31,16 @@ export interface WorkProject {
 export const featuredProjects: WorkProject[] = [
   {
     slug: "the-norman-tel-aviv",
-    name: "The Norman Hotel",
+    name: "The Norman",
     location: "Tel Aviv, Israel",
     scope: "Bedroom, restaurant and public-area furniture",
     website: "https://www.thenorman.com/",
     images: [
       {
-        src: "/assets/projects/norman-atrium-email-2025.jpg",
-        alt: "Dining table and lounge chairs in the light-filled atrium at The Norman Hotel",
-        width: 1200,
-        height: 801,
+        src: "/assets/projects/norman-restaurant-supplied-2026-09-10.jpg",
+        alt: "Upholstered dining chairs and round tables beside tall windows at The Norman",
+        width: 1600,
+        height: 775,
       },
       {
         src: "/assets/projects/norman-bar-dining-email-2025.jpg",

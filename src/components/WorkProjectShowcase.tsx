@@ -3,19 +3,15 @@ import type { WorkProject } from "../data/site";
 
 interface WorkProjectShowcaseProps {
   project: WorkProject;
-  index: number;
   priority?: boolean;
 }
 
-export function WorkProjectShowcase({ project, index, priority = false }: WorkProjectShowcaseProps) {
+export function WorkProjectShowcase({ project, priority = false }: WorkProjectShowcaseProps) {
   const titleId = `${project.slug}-title`;
 
   return (
     <article className="work-project shell" id={project.slug} aria-labelledby={titleId}>
       <header className="work-project__header">
-        <span className="work-project__number" aria-hidden="true">
-          {String(index + 1).padStart(2, "0")}
-        </span>
         <h2 id={titleId}>{project.name}</h2>
         <div className="work-project__meta">
           <dl>

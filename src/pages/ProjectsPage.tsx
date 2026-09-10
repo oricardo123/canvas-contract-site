@@ -12,15 +12,12 @@ export function ProjectsPage() {
 
   return (
     <div className="projects-page page-enter">
-      <section className="work-intro shell">
-        <h1 className="eyebrow">Work</h1>
-      </section>
+      <h1 className="sr-only">Work</h1>
 
       <section className="work-showcase" aria-label="Selected work">
         {featuredProjects.map((project, index) => (
           <WorkProjectShowcase
             project={project}
-            index={index}
             priority={index === 0}
             key={project.slug}
           />
