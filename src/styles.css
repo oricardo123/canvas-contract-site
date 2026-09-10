@@ -1871,7 +1871,8 @@
   }
 
   .studio-lead {
-    padding-top: 2rem;
+    padding-block: 3rem 1rem;
+    row-gap: 2rem;
   }
 
   .studio-lead__copy {
@@ -1893,7 +1894,7 @@
   }
 
   .studio-lead__copy h1 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: clamp(2rem, 3.3vw, 3.25rem);
     line-height: 1.12;
     text-wrap: balance;
@@ -1905,7 +1906,7 @@
   }
 
   .studio-lead__copy p + p {
-    margin-top: 1.25rem;
+    margin-top: 2rem;
   }
 
   .origin-story {
@@ -2632,7 +2633,7 @@
     }
 
     .studio-lead {
-      padding-top: 1.5rem;
+      padding-top: 2.5rem;
     }
 
     .studio-lead__copy {
