@@ -1,15 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ContactBanner } from "../components/ContactBanner";
-import { FurnitureImage } from "../components/FurnitureImage";
-import { PageIntro } from "../components/PageIntro";
 import { usePageMeta } from "../hooks/usePageMeta";
-
-const services = [
-  ["01", "Specify", "Products, dimensions, materials, finishes and quantities are agreed before production"],
-  ["02", "Produce", "Furniture is made through specialist manufacturers and checked before dispatch"],
-  ["03", "Deliver", "Packing and transport are planned around the site and delivery dates"],
-];
 
 export function StudioPage() {
   usePageMeta(
@@ -20,18 +12,19 @@ export function StudioPage() {
 
   return (
     <div className="studio-page page-enter">
-      <PageIntro
-        eyebrow="About Canvas"
-        title="Fine contract & private projects"
-        copy={
+      <section className="studio-lead shell" aria-labelledby="studio-title">
+        <div className="studio-lead__copy">
+          <h1 id="studio-title">Fine contract &amp; private projects</h1>
           <p>
             Founded by Carlos Almeida in 2010. Canvas has now its production operation established in Portugal and continues growing its international Client base
           </p>
-        }
-        side={<span className="page-count">Est. 2010</span>}
-      />
-
-      <section className="studio-lead shell">
+          <p>
+            Canvas supplies seating, tables, sofas, benches and case goods. Products from the collection can be changed in size, material and finish
+          </p>
+          <p>
+            New furniture can also be developed from drawings or a project brief
+          </p>
+        </div>
         <figure className="studio-lead__image">
           <img
             src="/assets/editorial/canvas-loungers-email-2025.jpg"
@@ -41,16 +34,6 @@ export function StudioPage() {
             style={{ objectPosition: "50% 100%" }}
           />
         </figure>
-        <div className="studio-lead__copy">
-          <p className="eyebrow">What we do</p>
-          <h2>From product selection to delivery</h2>
-          <p>
-            Canvas supplies seating, tables, sofas, benches and case goods. Products from the collection can be changed in size, material and finish
-          </p>
-          <p>
-            New furniture can also be developed from drawings or a project brief
-          </p>
-        </div>
       </section>
 
       <section className="origin-story shell">
@@ -80,34 +63,6 @@ export function StudioPage() {
               Canvas has been, over the time, contracted to develop and produce pieces of furniture for award winning projects for credible and renowned Designers, Architects and Hoteliers
             </p>
           </div>
-        </div>
-        <div className="craft-strip" aria-label="Furniture from the Canvas portfolio">
-          <figure>
-            <FurnitureImage src="/assets/editorial/canvas-lounger-interior-email-2025.jpg" alt="Upholstered timber lounger in a finished interior from the Canvas portfolio" width={1024} height={752} fit="cover" sourceInset={0} style={{ alignSelf: "end" }} />
-          </figure>
-          <figure>
-            <FurnitureImage src="/assets/editorial/canvas-sideboard-email-2025.jpg" alt="Figured timber sideboard with decorative metal handles from the Canvas portfolio" width={4032} height={3024} fit="cover" sourceInset={0} />
-          </figure>
-        </div>
-      </section>
-
-      <section className="values-section">
-        <div className="shell">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">Service</p>
-              <h2>A clear production process</h2>
-            </div>
-          </div>
-          <ol className="values-grid">
-            {services.map(([number, title, copy]) => (
-              <li key={number}>
-                <span>{number}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
