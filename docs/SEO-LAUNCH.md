@@ -11,16 +11,16 @@ The visible homepage headline and approved content remain unchanged. “Custom f
 
 ## Current review behavior
 
-`seo.config.json` centralizes the brand, domain, homepage metadata and review flag. `index.html` has matching metadata for crawlers and sharing tools that do not run JavaScript. `usePageMeta` updates metadata after route navigation. The generated sitemap contains all existing public routes at the confirmed launch origin.
+`seo.config.json` centralizes the brand, domain and homepage metadata. `vite.config.ts` uses the build environment to produce matching initial HTML, runtime metadata and robots.txt. `usePageMeta` updates metadata after route navigation. The generated sitemap contains all existing public routes at the confirmed launch origin.
 
-`reviewMode` is true. The review page retains its robots noindex meta tag, blocking robots.txt and Vercel X-Robots-Tag header. Social images use the reachable review origin until the launch domain serves the new website. These restrictions must remain during review. A build alone does not launch or index the site.
+Only `VERCEL_ENV=production` enables indexing and uses the launch origin for social images. Preview, development and unset environments retain the noindex meta tag, blocking robots.txt and review-origin images. The source `public/robots.txt` remains blocking; the Vite build writes the appropriate generated version. Vercel's conditional X-Robots-Tag header blocks indexing on every hostname except `canvascustomfurniture.com`, including Vercel's production alias. The established review branch remains unchanged. A build alone does not launch or index the site.
 
 ## Launch actions still required
 
 1. Obtain domain/DNS access and connect the confirmed domain to the intended Vercel project. Public records currently identify Stack Domains/20i DNS; the recorded transfer was arranged through Christine Reed. Verify current access. Preserve existing mail records and confirm both published email addresses still work.
 2. Configure HTTPS and the preferred hostname: redirect `www.canvascustomfurniture.com` to the apex, preserving paths and query strings. Verify the actual DNS instructions supplied by Vercel at launch.
-3. Prepare indexing changes together: set `reviewMode: false`, change the initial HTML robots meta to `index, follow`, switch its two social image URLs to the launch origin, replace the blocking robots.txt rule with `Allow: /` plus `Sitemap: https://canvascustomfurniture.com/sitemap.xml`, and remove the global Vercel noindex header. Keep preview deployments protected through Vercel's environment-specific controls and verify their actual response headers after the change.
-4. Run `npm run build`. Its SEO validation rejects mismatched homepage metadata, missing sharing artwork, incorrect sitemap routes or inconsistent indexing controls. Review the exact output before the separately authorized production deployment.
+3. Deploy this launch branch in Vercel's **Production** environment with access to system environment variables enabled. `VERCEL_ENV=production` switches the build's initial/rendered robots metadata, social image origin and robots.txt together. A preview build must be rebuilt for Production; assigning a production hostname to an existing preview artifact does not change its metadata. Verify actual response headers on the apex and Vercel review host.
+4. Run both `VERCEL_ENV=preview npm run build` and `VERCEL_ENV=production npm run build`. Their SEO validation rejects mismatched homepage metadata, missing sharing artwork, incorrect sitemap routes or inconsistent indexing controls. A plain `npm run build` also defaults to review protection. Inspect the exact production output before deployment.
 5. On the deployed domain, verify HTTPS, homepage HTML/rendered canonical and metadata, sharing image access, robots.txt, response headers and sitemap. Inspect representative Collection/product and legacy URLs.
 6. Verify domain ownership in Google Search Console, submit the sitemap and use URL Inspection on the homepage. No ownership verification, sitemap submission or production deployment has been performed in this preparation.
 

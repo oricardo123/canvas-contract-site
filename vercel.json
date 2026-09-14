@@ -2,6 +2,9 @@
   "headers": [
     {
       "source": "/(.*)",
+      "missing": [
+        { "type": "host", "value": "canvascustomfurniture\\.com" }
+      ],
       "headers": [
         {
           "key": "X-Robots-Tag",

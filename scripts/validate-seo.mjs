@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { reviewMode } from "./seo-environment.mjs";
 
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
@@ -16,7 +17,7 @@ const expectTag = (attribute, key, valueAttribute, expected) => {
 };
 const title = `${seo.home.title} | ${seo.siteName}`;
 const canonical = new URL("/", seo.siteOrigin).href;
-const image = new URL(seo.home.image, seo.reviewMode ? seo.reviewOrigin : seo.siteOrigin).href;
+const image = new URL(seo.home.image, reviewMode ? seo.reviewOrigin : seo.siteOrigin).href;
 assert.equal(new URL(seo.siteOrigin).protocol, "https:");
 assert.equal(html.match(/<title>([^<]+)<\/title>/)?.[1], title);
 expectTag("name", "description", "content", seo.home.description);
@@ -55,16 +56,22 @@ const robots = await read("dist/robots.txt");
 const vercel = JSON.parse(await read("vercel.json"));
 const robotHeaders = (vercel.headers || []).flatMap((rule) =>
   rule.headers.filter((header) => header.key.toLowerCase() === "x-robots-tag")
-    .map((header) => ({ ...header, source: rule.source })),
+    .map((header) => ({ ...header, source: rule.source, has: rule.has, missing: rule.missing })),
 );
-expectTag("name", "robots", "content", seo.reviewMode ? "noindex, nofollow" : "index, follow");
-if (seo.reviewMode) {
+const noindexHeaders = robotHeaders.filter((header) => /noindex/i.test(header.value));
+assert.equal(noindexHeaders.length, 1, "Expected one conditional preview noindex header");
+const previewHeader = noindexHeaders[0];
+assert.equal(previewHeader.source, "/(.*)");
+assert.equal(previewHeader.has, undefined);
+assert.deepEqual(previewHeader.missing, [
+  { type: "host", value: new URL(seo.siteOrigin).hostname.replaceAll(".", "\\.") },
+], "The noindex header must exclude only the canonical production hostname");
+expectTag("name", "robots", "content", reviewMode ? "noindex, nofollow" : "index, follow");
+assert.doesNotMatch(html, /__CANVAS_\w+__/, "Unresolved build metadata placeholder");
+if (reviewMode) {
   assert.match(robots, /^Disallow:\s*\/\s*$/m, "Review robots must block crawling");
-  assert.ok(robotHeaders.some((header) => header.source === "/(.*)" && /noindex/i.test(header.value)),
-    "Review Vercel header must retain noindex");
 } else {
   assert.doesNotMatch(robots, /^Disallow:\s*\/\s*$/m, "Launch robots still blocks all crawling");
   assert.match(robots, new RegExp(`^Sitemap: ${seo.siteOrigin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/sitemap\\.xml\\s*$`, "m"));
-  assert.ok(!robotHeaders.some((header) => /noindex/i.test(header.value)), "Launch Vercel header still blocks indexing");
 }
-console.log(`SEO verified: Canvas homepage metadata, sharing image, site-name markup, ${locations.length} canonical sitemap URLs; ${seo.reviewMode ? "review noindex retained" : "launch indexing enabled"}.`);
+console.log(`SEO verified: Canvas homepage metadata, sharing image, site-name markup, ${locations.length} canonical sitemap URLs; ${reviewMode ? "review noindex retained" : "launch indexing enabled"}.`);

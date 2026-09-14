@@ -77,7 +77,7 @@ export function usePageMeta(
     const canonicalUrl = absoluteUrl(pagePath);
     const socialImage = new URL(
       image || DEFAULT_IMAGE,
-      seo.reviewMode ? seo.reviewOrigin : SITE_ORIGIN,
+      __CANVAS_REVIEW_MODE__ ? seo.reviewOrigin : SITE_ORIGIN,
     ).href;
     const socialImageAlt = imageAlt || `${title} from ${SITE_NAME}`;
 
@@ -86,7 +86,7 @@ export function usePageMeta(
     setSiteNameData(pagePath === "/");
 
     setMeta("name", "description", pageDescription);
-    setMeta("name", "robots", noIndex || seo.reviewMode ? "noindex, nofollow" : "index, follow");
+    setMeta("name", "robots", noIndex || __CANVAS_REVIEW_MODE__ ? "noindex, nofollow" : "index, follow");
 
     setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", pageDescription);
