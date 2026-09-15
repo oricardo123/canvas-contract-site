@@ -3,7 +3,10 @@
     {
       "source": "/(.*)",
       "missing": [
-        { "type": "host", "value": "canvascustomfurniture\\.com" }
+        {
+          "type": "host",
+          "value": "canvascustomfurniture\\.com"
+        }
       ],
       "headers": [
         {
@@ -14,6 +17,10 @@
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "cleanUrls": true
 }

@@ -8,11 +8,7 @@ import { catalog } from "../data/catalog";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function CollectionPage() {
-  usePageMeta(
-    "Furniture Collection",
-    "Explore made-to-order armchairs, side chairs, lounge chairs, stools, sofas, tables, case goods and benches.",
-    { path: "/collection", image: catalog[0].image },
-  );
+  usePageMeta("/collection");
 
   return (
     <div className="collection-page">

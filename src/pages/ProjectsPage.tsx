@@ -5,11 +5,7 @@ import { featuredProjects, projectArchive } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function ProjectsPage() {
-  usePageMeta(
-    "Work",
-    "Selected Canvas furniture projects for hotels and restaurants in Europe and beyond.",
-    { path: "/projects", image: featuredProjects[0].images[0].src },
-  );
+  usePageMeta("/projects");
 
   return (
     <div className="projects-page page-enter">

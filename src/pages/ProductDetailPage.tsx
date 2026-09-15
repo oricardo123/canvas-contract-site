@@ -23,15 +23,7 @@ export function ProductDetailPage() {
   const { categorySlug, productCode } = useParams();
   const { category, product } = getProduct(categorySlug, productCode);
 
-  usePageMeta(
-    product?.code ?? "Product",
-    product ? `${product.alt}. Made to order by Canvas Contract Furniture.` : undefined,
-    {
-      path: product ? productPath(product) : "/collection",
-      image: product ? getProductImage(product) : undefined,
-      type: "product",
-    },
-  );
+  usePageMeta(product ? productPath(product) : "/collection");
 
   if (!category || !product) return <Navigate to="/collection" replace />;
 

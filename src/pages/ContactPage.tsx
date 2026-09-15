@@ -2,11 +2,7 @@ import { contact } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function ContactPage() {
-  usePageMeta(
-    "Contact",
-    "Contact Canvas about a furniture project, product specification or custom piece.",
-    { path: "/contact", image: "/assets/editorial/canvas-armchair-email-2025.jpg" },
-  );
+  usePageMeta("/contact");
 
   return (
     <div className="contact-page page-enter">

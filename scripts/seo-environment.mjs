@@ -9,10 +9,13 @@ export const reviewMode = process.env.VERCEL_ENV !== "production";
 
 export function deploymentMetadata() {
   const imageOrigin = reviewMode ? seo.reviewOrigin : seo.siteOrigin;
+  const escapeHtml = value => value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
   return {
     name: "canvas-deployment-metadata",
     transformIndexHtml(html) {
       return html
+        .replaceAll("__CANVAS_TITLE__", escapeHtml(`${seo.home.title} | ${seo.siteName}`))
+        .replaceAll("__CANVAS_DESCRIPTION__", escapeHtml(seo.home.description))
         .replace("__CANVAS_ROBOTS__", reviewMode ? "noindex, nofollow" : "index, follow")
         .replaceAll("__CANVAS_IMAGE_ORIGIN__", imageOrigin);
     },

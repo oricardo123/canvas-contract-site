@@ -13,14 +13,7 @@ export function CategoryPage() {
   const category = getCategory(categorySlug);
   const [visible, setVisible] = useState(PAGE_SIZE);
 
-  usePageMeta(
-    category?.name ?? "Collection",
-    category ? `Explore ${category.count} made-to-order ${category.name.toLowerCase()} from Canvas.` : undefined,
-    {
-      path: category ? `/collection/${category.slug}` : "/collection",
-      image: category?.image,
-    },
-  );
+  usePageMeta(category ? `/collection/${category.slug}` : "/collection");
 
   useEffect(() => setVisible(PAGE_SIZE), [categorySlug]);
 

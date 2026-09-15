@@ -7,7 +7,6 @@ import { ProjectCard } from "../components/ProjectCard";
 import { catalog } from "../data/catalog";
 import { featuredProjects } from "../data/site";
 import { usePageMeta } from "../hooks/usePageMeta";
-import seo from "../../seo.config.json";
 
 const process = [
   ["01", "Brief", "We review the drawings, quantities, use and delivery requirements"],
@@ -33,11 +32,7 @@ const heroImage = heroProject.images.find(({ src }) =>
 )!;
 
 export function HomePage() {
-  usePageMeta(
-    seo.home.title,
-    seo.home.description,
-    { path: "/", image: seo.home.image, imageAlt: seo.home.imageAlt },
-  );
+  usePageMeta("/");
 
   return (
     <div className="home-page page-enter">

@@ -4,11 +4,7 @@ import { ContactBanner } from "../components/ContactBanner";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function StudioPage() {
-  usePageMeta(
-    "About Canvas",
-    "Canvas is a Portugal-based furniture company supplying made-to-order furniture for contract and private projects.",
-    { path: "/studio", image: "/assets/editorial/canvas-loungers-email-2025.jpg" },
-  );
+  usePageMeta("/studio");
 
   return (
     <div className="studio-page page-enter">

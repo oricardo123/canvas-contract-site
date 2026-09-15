@@ -1,106 +1,54 @@
 import { useEffect } from "react";
-import seo from "../../seo.config.json";
-
-const SITE_ORIGIN = seo.siteOrigin;
-const SITE_NAME = seo.siteName;
-const DEFAULT_DESCRIPTION = seo.home.description;
-const DEFAULT_IMAGE = seo.home.image;
-
-interface PageMetaOptions {
-  path?: string;
-  image?: string;
-  imageAlt?: string;
-  type?: "website" | "product";
-  noIndex?: boolean;
-}
+import { getPageMeta } from "../seo/page-meta";
 
 function setMeta(attribute: "name" | "property", key: string, content: string) {
   let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
-
   if (!element) {
     element = document.createElement("meta");
     element.setAttribute(attribute, key);
     document.head.append(element);
   }
-
   element.content = content;
 }
 
-function setCanonical(href: string) {
-  let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-
-  if (!link) {
-    link = document.createElement("link");
-    link.rel = "canonical";
-    document.head.append(link);
-  }
-
-  link.href = href;
-}
-
-function absoluteUrl(value: string) {
-  return new URL(value, SITE_ORIGIN).href;
-}
-
-function setSiteNameData(isHome: boolean) {
-  let element = document.head.querySelector<HTMLScriptElement>("#site-name-data");
-
-  if (!isHome) {
-    element?.remove();
-    return;
-  }
-
-  if (!element) {
-    element = document.createElement("script");
-    element.id = "site-name-data";
-    element.type = "application/ld+json";
-    document.head.append(element);
-  }
-
-  element.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: SITE_NAME,
-    url: absoluteUrl("/"),
-  });
-}
-
-export function usePageMeta(
-  title: string,
-  description?: string,
-  { path, image, imageAlt, type = "website", noIndex = false }: PageMetaOptions = {},
-) {
+export function usePageMeta(path?: string) {
   useEffect(() => {
-    const fullTitle = `${title} | ${SITE_NAME}`;
-    const pageDescription = description?.trim() || DEFAULT_DESCRIPTION;
-    const pagePath = path || window.location.pathname;
-    const canonicalUrl = absoluteUrl(pagePath);
-    const socialImage = new URL(
-      image || DEFAULT_IMAGE,
-      __CANVAS_REVIEW_MODE__ ? seo.reviewOrigin : SITE_ORIGIN,
-    ).href;
-    const socialImageAlt = imageAlt || `${title} from ${SITE_NAME}`;
+    const meta = getPageMeta(path || window.location.pathname, __CANVAS_REVIEW_MODE__);
+    document.title = meta.title;
 
-    document.title = fullTitle;
-    setCanonical(canonicalUrl);
-    setSiteNameData(pagePath === "/");
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (meta.canonicalUrl) {
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.rel = "canonical";
+        document.head.append(canonical);
+      }
+      canonical.href = meta.canonicalUrl;
+    } else canonical?.remove();
 
-    setMeta("name", "description", pageDescription);
-    setMeta("name", "robots", noIndex || __CANVAS_REVIEW_MODE__ ? "noindex, nofollow" : "index, follow");
+    let schema = document.head.querySelector<HTMLScriptElement>("#site-name-data");
+    if (meta.siteNameData) {
+      if (!schema) {
+        schema = document.createElement("script");
+        schema.id = "site-name-data";
+        schema.type = "application/ld+json";
+        document.head.append(schema);
+      }
+      schema.textContent = JSON.stringify(meta.siteNameData);
+    } else schema?.remove();
 
-    setMeta("property", "og:title", fullTitle);
-    setMeta("property", "og:description", pageDescription);
-    setMeta("property", "og:type", type);
-    setMeta("property", "og:url", canonicalUrl);
-    setMeta("property", "og:image", socialImage);
-    setMeta("property", "og:image:alt", socialImageAlt);
-    setMeta("property", "og:site_name", SITE_NAME);
-    setMeta("property", "og:locale", "en_GB");
-
-    setMeta("name", "twitter:card", "summary_large_image");
-    setMeta("name", "twitter:title", fullTitle);
-    setMeta("name", "twitter:description", pageDescription);
-    setMeta("name", "twitter:image", socialImage);
-    setMeta("name", "twitter:image:alt", socialImageAlt);
-  }, [description, image, imageAlt, noIndex, path, title, type]);
+    for (const [key, value] of Object.entries({
+      description: meta.description, robots: meta.robots,
+      "twitter:card": "summary_large_image", "twitter:title": meta.title,
+      "twitter:description": meta.description, "twitter:image": meta.image,
+      "twitter:image:alt": meta.imageAlt,
+    })) setMeta("name", key, value);
+    for (const [key, value] of Object.entries({
+      "og:title": meta.title, "og:description": meta.description, "og:type": meta.type,
+      "og:image": meta.image, "og:image:alt": meta.imageAlt,
+      "og:site_name": meta.siteName, "og:locale": "en_GB",
+    })) setMeta("property", key, value);
+    if (meta.canonicalUrl) setMeta("property", "og:url", meta.canonicalUrl);
+    else document.head.querySelector('meta[property="og:url"]')?.remove();
+  }, [path]);
 }

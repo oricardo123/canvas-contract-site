@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function NotFoundPage() {
-  usePageMeta("Page not found", undefined, { noIndex: true });
+  usePageMeta();
   return (
     <section className="not-found shell page-enter">
       <p className="eyebrow">404</p>
